@@ -7,7 +7,7 @@
  */
 class User extends AppModel{
 
-    var $name = 'user';
+    public $name = 'user';
     public $displayField = 'name';
 
     public $validate = array(

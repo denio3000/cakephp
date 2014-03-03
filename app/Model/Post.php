@@ -2,7 +2,6 @@
 
 class Post extends AppModel {
 
-
     public function getAuthorName($userid = NULL){
         App::import('Model', 'User');
         $userObj = new User();

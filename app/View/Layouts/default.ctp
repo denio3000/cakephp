@@ -17,6 +17,8 @@ $cakeDescription = __d('cake_dev', 'INFODESIGN: Default layout');
 
     // jQuery
         echo $this->Html->script('jquery');
+        echo $this->Html->script('all');
+
     // Bootstrap
         echo $this->Html->css('bootstrap');
         echo $this->Html->script('bootstrap');

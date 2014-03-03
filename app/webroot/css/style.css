@@ -53,3 +53,17 @@ footer{
 .navbar{
     margin-bottom:0;
 }
+.modal-body .submit{
+    float:right;
+    margin:0;
+    padding:0;
+}
+.modal-body .alert-success{
+    font-size:40px;
+    border-radius:4px;
+}
+.modal-body .alert-success:before{
+    content:'✓';
+    padding:5px 20px;
+    text-align: center;
+}

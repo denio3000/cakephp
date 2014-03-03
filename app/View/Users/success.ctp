@@ -1,0 +1,1 @@
+<p class="alert-success">The user has register successfully!</p>

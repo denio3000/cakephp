@@ -44,7 +44,6 @@ class PostCategoriesController extends AppController {
 
     public function view ($id = NULL)
     {
-
         if(!empty ( $id )){
             $CategoryLoaded = $this->PostCategory->find('first', array('conditions'=>array('PostCategory.id' => $id)));
             $this->set('CategoryLoaded', $CategoryLoaded);

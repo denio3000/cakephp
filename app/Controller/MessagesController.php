@@ -18,9 +18,9 @@ class MessagesController extends AppController{
     }
 
     public function add(){
-        $this->layout = 'post';
-        if(!empty($this->data)){
-            if($this->Message->save($this->data)){
+
+        if(!empty($this->request->data)){
+            if($this->Message->save($this->request->data)){
                 if ($this->request->is('ajax')){
                     $this->render('success','ajax');
                 }else{
@@ -33,6 +33,7 @@ class MessagesController extends AppController{
 
     public function index ()
     {
+        $this->layout = 'default';
         $messages = $this->Message->find('all');
         if (is_array($messages) || (count($messages) != 0)){
             $this->set('messages', $messages);

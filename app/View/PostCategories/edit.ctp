@@ -6,8 +6,8 @@ Adding a post category
 <div id="success"></div>
 
 <?php echo $this->Form->create(); ?>
-<?php echo $this->Form->input('Title', array('id' => 'title')); ?>
-<?php echo $this->Form->input('Description', array('id' => 'description')); ?>
+<?php echo $this->Form->input('title', array('id' => 'title')); ?>
+<?php echo $this->Form->input('description', array('id' => 'description')); ?>
 <?php echo $this->Js->submit('Save', array(
     'before' => $this->Js->get('#inprogress')->effect('fadeIn'),
     'success' => $this->Js->get('#inprogress')->effect('fadeOut'),

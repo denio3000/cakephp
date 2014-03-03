@@ -2,19 +2,27 @@
 <div id="footer">
     testing cakePhp @febr 2014
 </div>
+<div class="modal fade" id="popup" role="dialog"></div>
 
-<div class="modal fade" id="contact" role="dialog">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4>Contact Info Design Test</h4>
-            </div>
-            <div class="modal-body">
-            </div>
-            <div class="modal-footer">
-                <a class="btn btn-primary" data-dismiss="modal">Trimite</a>
-                <a class="btn btn-default" data-dismiss="modal">Inchide</a>
-            </div>
-        </div>
-    </div>
-</div>
+<script>
+    $ = jQuery;
+    function ajaxPopup(url){
+        $.ajax({
+        url     : url,
+        type    : "GET",
+        dataType: 'html',
+        cache   : false,
+        success : function(data){
+            $('#popup').html( '<div class="modal-dialog">' +
+                '<div class="modal-content">'
+                + data +
+                '</div>' +
+                '</div>'
+            );
+            //$('#SendBtn').appendTo('.modal-footer').attr({"onclick" : "$('#contact').find('form').submit()" });
+        }
+    });
+
+}
+
+</script>

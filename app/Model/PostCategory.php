@@ -8,5 +8,6 @@
 
 class PostCategory extends AppModel
 {
+   public $name = 'PostCategory';
 
 }

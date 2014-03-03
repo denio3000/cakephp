@@ -76,12 +76,14 @@ class UsersController extends AppController
 
     public function add ()
     {
-        if ($this->request->is('post')) {
+        if(!empty($this->request->data)){
             if($this->User->save($this->request->data)){
-                $this->Session->setFlash('The user has been saved.');
-                $this->redirect(array('action' => 'index'));
-            } else{
-                $this->Session->setFlash('The user could not be saved. Please, try again.');
+                if ($this->request->is('ajax')){
+                    $this->render('success','ajax');
+                }else{
+                    $this->Session->setFlash('The user has been saved');
+                    $this->redirect(array('action'=>'index'));
+                }
             }
         }
     }

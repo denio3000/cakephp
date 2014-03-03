@@ -38,6 +38,11 @@ class PostsController extends AppController {
         $this->layout = 'post';
         $userid = $this->Auth->user('id');
 
+        App::import('Model', 'PostCategory');
+        $catObj = new PostCategory();
+        $cats = $catObj->find('list');
+        $this->set(compact('cats'));
+
         if($this->Auth->user('id') != $userid) {
             $this->Session->setFlash('You do not have permission to edit that post!');
             $this->redirect(array('controller'=>'posts','action'=>'index'));

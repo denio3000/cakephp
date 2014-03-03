@@ -28,10 +28,10 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Users <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo $this->webroot .'users/index'; ?>">List users</a></li>
-                        <li><a href="<?php echo $this->webroot .'users/add'; ?>">Register</a></li>
+                        <li><a data-toggle="modal" onclick="ajaxPopup('<?php echo Router::url(array('controller' => 'users', 'action' =>'add'), true); ?>');" href="#popup">Register</a></li>
                     </ul>
                 </li>
-                <li><a data-toggle="modal" href="#contact">Contact</a></li>
+                <li><a data-toggle="modal" onclick="ajaxPopup('<?php echo Router::url(array('controller' => 'messages', 'action' =>'add'), true); ?>');" href="#popup">Contact</a></li>
                 <li> <?php if($logged_in): ?>
                     Welcome <?php echo $current_user['username']; ?>
                 </li><li> <?php echo $this->Html->link('Logout', array('controller' => 'users','action' => 'logout')); ?>

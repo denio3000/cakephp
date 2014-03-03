@@ -15,5 +15,18 @@
  * @since         CakePHP(tm) v 0.10.0.1076
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
  */
+
 ?>
+ <!DOCTYPE html>
+    <html>
+   <head>
+        <?php
+        echo $this->fetch('jquery');
+        echo $this->fetch('script');
+        echo $this->Js->writeBuffer(array('cache'=> TRUE ));
+        ?>
+  </head>
+   <body>
 <?php echo $this->fetch('content'); ?>
+   </body>
+    </html>
