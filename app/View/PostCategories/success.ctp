@@ -1,0 +1,1 @@
+<p class="alert-success">Postul s-a salvat!</p>

@@ -1,0 +1,1 @@
+<p class="alert-success">Mesaj trimis!</p>

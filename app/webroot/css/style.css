@@ -1,0 +1,55 @@
+
+
+/* Slider homepage */
+.slide{
+    background:url('../img/slide1.jpg') no-repeat center center;
+    height:400px;
+    color:#fff;
+    text-align:center;
+}
+.slide .container {
+    color:#fff;
+    text-shadow: 0 0 15px rgba(0, 0, 0, 0.3), 0 -1px 0 rgba(0, 0, 0, 0.3);
+    text-rendering: optimizelegibility;
+    font-weight: bold;
+}
+.slide input{
+    width:200px;
+    color:#555;
+    border:1px solid #999;
+}
+
+#footer,
+footer{
+    color:#777;
+    font-size:90%;
+}
+#input_slide_homepage{
+
+}
+/* Posts */
+#sending{
+    display:none;
+    color:#00aa00;
+}
+.centering{
+    margin:0 auto;
+}
+[class^='posts'] h3{
+    margin:5px 0;
+}
+[class^='posts'] .panel-body{
+    padding:0 10px;
+}
+[class^='posts']{
+    border-top:3px solid #44DB5E;
+}
+[class^='messages']{
+    border-top:3px solid #FF2851;
+}
+[class^='users']{
+    border-top:3px solid #0076FF;
+}
+.navbar{
+    margin-bottom:0;
+}
