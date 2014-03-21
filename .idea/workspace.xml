@@ -1,7 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0c551ac1-ae06-4cff-b4c9-7bde62269ddc" name="Default" comment="" />
+    <list default="true" id="0c551ac1-ae06-4cff-b4c9-7bde62269ddc" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Posts/search.ctp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/View/Elements/search_box.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/webroot/img/slide1.jpg" afterPath="$PROJECT_DIR$/app/webroot/img/slide1.jpg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/AppController.php" afterPath="$PROJECT_DIR$/app/Controller/AppController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/PostsController.php" afterPath="$PROJECT_DIR$/app/Controller/PostsController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Controller/UsersController.php" afterPath="$PROJECT_DIR$/app/Controller/UsersController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Config/core.php" afterPath="$PROJECT_DIR$/app/Config/core.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/View/Layouts/post.ctp" afterPath="$PROJECT_DIR$/app/View/Layouts/post.ctp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <ignored path="cakephp.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,42 +33,76 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="PostCategoriesController.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Controller/PostCategoriesController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="40" selection-start="773" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1298">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PostsController.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="PostsController.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Controller/PostsController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="51" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.24619289" vertical-offset="730" max-vertical-offset="1518">
+            <state line="11" column="34" selection-start="207" selection-end="207" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="2394">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/PostCategories/edit.ctp">
+      <file leaf-file-name="User.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/User.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="25" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="506">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1827">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="listall.ctp" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/View/PostCategories/listall.ctp">
+      <file leaf-file-name="UsersController.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="13" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="176" max-vertical-offset="506">
+            <state line="14" column="62" selection-start="307" selection-end="307" vertical-scroll-proportion="-9.8" vertical-offset="0" max-vertical-offset="2751">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppController.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="0" selection-start="2235" selection-end="2235" vertical-scroll-proportion="0.56148493" vertical-offset="923" max-vertical-offset="1890">
               <folding>
-                <marker date="1393599709870" expanded="true" signature="73:511" placeholder="..." />
-                <marker date="1393599709870" expanded="true" signature="86:352" placeholder="..." />
-                <marker date="1393599709870" expanded="true" signature="385:500" placeholder="..." />
+                <element signature="e#6#794#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Posts/search.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="1" column="18" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.7" vertical-offset="0" max-vertical-offset="168">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="post.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Layouts/post.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="42" column="57" selection-start="1155" selection-end="1155" vertical-scroll-proportion="-8.066667" vertical-offset="640" max-vertical-offset="1617">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="search_box.ctp" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/View/Elements/search_box.ctp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="11" selection-start="409" selection-end="409" vertical-scroll-proportion="-7.7" vertical-offset="0" max-vertical-offset="357">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppModel.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Model/AppModel.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="441">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -70,6 +114,9 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="GitLogSettings">
     <option name="myDateState">
       <MyDateState />
@@ -78,22 +125,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/View/PostCategories/index.ctp" />
-        <option value="$PROJECT_DIR$/app/View/PostCategories/view.ctp" />
-        <option value="$PROJECT_DIR$/app/View/Layouts/post.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
-        <option value="$PROJECT_DIR$/app/Controller/AppController.php" />
-        <option value="$PROJECT_DIR$/app/Model/Post.php" />
-        <option value="$PROJECT_DIR$/app/View/Elements/header.ctp" />
         <option value="$PROJECT_DIR$/app/webroot/css/style.css" />
         <option value="$PROJECT_DIR$/app/View/Posts/view.ctp" />
         <option value="$PROJECT_DIR$/app/View/Layouts/default.ctp" />
         <option value="$PROJECT_DIR$/app/View/Posts/index.ctp" />
         <option value="$PROJECT_DIR$/app/View/PostCategories/listall.ctp" />
         <option value="$PROJECT_DIR$/app/View/PostCategories/edit.ctp" />
-        <option value="$PROJECT_DIR$/app/Controller/PostsController.php" />
         <option value="$PROJECT_DIR$/app/Model/PostCategory.php" />
         <option value="$PROJECT_DIR$/app/Controller/PostCategoriesController.php" />
+        <option value="$PROJECT_DIR$/app/Model/Behavior/taggable.php" />
+        <option value="$PROJECT_DIR$/app/View/Layouts/post.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Elements/search_box.ctp" />
+        <option value="$PROJECT_DIR$/app/View/Posts/search.ctp" />
+        <option value="$PROJECT_DIR$/app/Config/core.php" />
+        <option value="$PROJECT_DIR$/app/Controller/UsersController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/PostsController.php" />
+        <option value="$PROJECT_DIR$/app/Controller/AppController.php" />
       </list>
     </option>
   </component>
@@ -103,10 +150,10 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="139" />
-    <option name="y" value="28" />
-    <option name="width" value="1722" />
-    <option name="height" value="949" />
+    <option name="x" value="266" />
+    <option name="y" value="11" />
+    <option name="width" value="1593" />
+    <option name="height" value="977" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -163,6 +210,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Event" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lib" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Cake" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -296,6 +391,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="View" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Elements" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Model" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -315,6 +432,24 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cakephp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -402,15 +537,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="139" y="28" width="1722" height="949" extended-state="0" />
-    <editor active="false" />
+    <frame x="266" y="11" width="1593" height="977" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2080891" sideWeight="0.67141294" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18389347" sideWeight="0.67141294" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858709" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -418,8 +553,8 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32858709" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -439,97 +574,113 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/View/Elements/header.ctp">
+    <entry file="file://$PROJECT_DIR$/app/Controller/PostCategoriesController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="104" selection-start="1626" selection-end="1626" vertical-scroll-proportion="0.5985401" vertical-offset="14" max-vertical-offset="1100" />
+        <state line="32" column="40" selection-start="773" selection-end="777" vertical-scroll-proportion="0.6798561" vertical-offset="0" max-vertical-offset="1113">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Posts/index.ctp">
+    <entry file="file://$PROJECT_DIR$/app/View/PostCategories/edit.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="142" selection-start="609" selection-end="609" vertical-scroll-proportion="0.48175183" vertical-offset="0" max-vertical-offset="822" />
+        <state line="8" column="61" selection-start="134" selection-end="165" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="483">
+          <folding>
+            <marker date="1393838191775" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1393838191775" expanded="false" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
+    <entry file="file://$PROJECT_DIR$/lib/Cake/Core/Object.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="362" column="3" selection-start="13700" selection-end="13700" vertical-scroll-proportion="0.61012655" vertical-offset="7108" max-vertical-offset="8228" />
+        <state line="161" column="29" selection-start="5244" selection-end="5249" vertical-scroll-proportion="-0.5225" vertical-offset="3526" max-vertical-offset="4326" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+    <entry file="file://$PROJECT_DIR$/lib/Cake/Event/CakeEvent.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="0" selection-start="2202" selection-end="2202" vertical-scroll-proportion="0.6936488" vertical-offset="477" max-vertical-offset="1364">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-2.22875" vertical-offset="1783" max-vertical-offset="2583" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/Cake/Controller/Controller.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="856" column="3" selection-start="25259" selection-end="25259" vertical-scroll-proportion="0.35375" vertical-offset="17420" max-vertical-offset="25956">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/PostCategories/listall.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="13" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="506">
+        <state line="8" column="13" selection-start="353" selection-end="353" vertical-scroll-proportion="0.0" vertical-offset="168" max-vertical-offset="483">
           <folding>
-            <marker date="1393599709870" expanded="true" signature="73:511" placeholder="..." />
-            <marker date="1393599709870" expanded="true" signature="86:352" placeholder="..." />
-            <marker date="1393599709870" expanded="true" signature="385:500" placeholder="..." />
+            <marker date="1393599709870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1393599709870" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1393599709870" expanded="true" signature="-1:-1" placeholder="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/PostCategories/success.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="832" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/PagesController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1540" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Layouts/home.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1012" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/Posts/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="832" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/PostCategories/index.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="22" selection-start="99" selection-end="110" vertical-scroll-proportion="0.22278482" vertical-offset="0" max-vertical-offset="790" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/Post.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="370" selection-end="370" vertical-scroll-proportion="0.41095892" vertical-offset="0" max-vertical-offset="803" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Model/PostCategory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="18" selection-start="105" selection-end="117" vertical-scroll-proportion="0.08219178" vertical-offset="0" max-vertical-offset="803" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/View/PostCategories/edit.ctp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="25" selection-start="451" selection-end="451" vertical-scroll-proportion="0.0" vertical-offset="286" max-vertical-offset="506">
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/View/Layouts/post.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="30" selection-start="1608" selection-end="1608" vertical-scroll-proportion="0.04109589" vertical-offset="1089" max-vertical-offset="1958" />
+        <state line="42" column="57" selection-start="1155" selection-end="1155" vertical-scroll-proportion="-8.066667" vertical-offset="640" max-vertical-offset="1617">
+          <folding />
+        </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Controller/PostCategoriesController.php">
+    <entry file="file://$PROJECT_DIR$/app/View/Posts/search.ctp">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="40" selection-start="773" selection-end="777" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="1298">
+        <state line="1" column="18" selection-start="24" selection-end="24" vertical-scroll-proportion="-0.7" vertical-offset="0" max-vertical-offset="168">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/AppModel.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="871">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/View/Elements/search_box.ctp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="11" selection-start="409" selection-end="409" vertical-scroll-proportion="-7.7" vertical-offset="0" max-vertical-offset="357">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Config/core.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="33" column="31" selection-start="1201" selection-end="1201" vertical-scroll-proportion="0.39575973" vertical-offset="0" max-vertical-offset="7875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Model/User.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1827">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/UsersController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="62" selection-start="307" selection-end="307" vertical-scroll-proportion="-9.8" vertical-offset="0" max-vertical-offset="2751">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Controller/PostsController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="51" selection-start="1355" selection-end="1355" vertical-scroll-proportion="0.24619289" vertical-offset="730" max-vertical-offset="1518">
+        <state line="11" column="34" selection-start="207" selection-end="207" vertical-scroll-proportion="-4.2" vertical-offset="0" max-vertical-offset="2394">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Controller/AppController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="0" selection-start="2235" selection-end="2235" vertical-scroll-proportion="0.56148493" vertical-offset="923" max-vertical-offset="1890">
+          <folding>
+            <element signature="e#6#794#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

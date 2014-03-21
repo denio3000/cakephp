@@ -40,19 +40,7 @@ $cakeDescription = __d('cake_dev', 'single page - post');
         <div class="container">
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="well">
-                        <h4> Search</h4>
-                        <div class="input-group">
-                            <input type="text" class="form-control">
-                        <span class="input-group-btn">
-                            <button type="button" class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
-                            </button>
-                        </span>
-                        </div>
-                        <!-- /input-group -->
-                    </div>
-                    <!-- /well -->
+                    <?php echo $this->element('search_box') ;?>
                     <div class="well">
                         <h4>Categories</h4>
                         <div class="row">

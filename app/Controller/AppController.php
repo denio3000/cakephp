@@ -34,18 +34,20 @@ class AppController extends Controller {
 
     var $helpers = array('Html', 'Form', 'Js');
     public $components = array(
+        'RequestHandler',
         'DebugKit.Toolbar',
         'Session',
         'Auth' => array(
             'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
-            'logoutRedirect' => array('controller' => 'users', 'action' => 'index'),
+            'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
             'authError'=>"You don't have access to view that page",
-            'authorize'=>array('Controller'),
             'loginAction' => array(
                 'controller' => 'users',
                 'action' => 'login'
-            )
-        ));
+            ),
+            'authorize' => array('Controller')
+        )
+    );
 
 //Determine the loggedin user what access pages have to
     public function isAuthorized($user){
@@ -64,13 +66,13 @@ class AppController extends Controller {
         $this->set('logged_in', $this->Auth->loggedIn());
         $this->set('current_user' , $this->Auth->user());
 
-      // Write session
+     // Write session
         $loadUser = $this->Auth->user();
         SessionComponent::write("User.id", $loadUser['id']);
         SessionComponent::write("User.username", $loadUser['username']);
         SessionComponent::write("User.role", $loadUser['role']);
 
-      // Ajax change layout
+     // Ajax change layout
         if ($this->request->is('ajax')) {
             $this->layout = 'ajax';
         } else {

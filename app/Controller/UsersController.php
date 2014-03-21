@@ -12,12 +12,11 @@ class UsersController extends AppController
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow( 'index','view', 'add');
+        $this->Auth->allow( 'index', 'view', 'add', 'logout');
     }
 
     public function isAuthorized($user)
     {
-
         if($user['role'] == 'admin') {
             return true;
         }
