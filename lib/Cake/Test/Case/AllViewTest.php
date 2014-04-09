@@ -19,7 +19,7 @@
 /**
  * AllViewTest class
  *
- * This test group will run view.ctp class tests (view.ctp, theme)
+ * This test group will run view class tests (view, theme)
  *
  * @package       Cake.Test.Case
  */

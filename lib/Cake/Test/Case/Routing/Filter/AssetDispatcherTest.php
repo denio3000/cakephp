@@ -1,6 +1,6 @@
 <?php
 /**
- * CakePHP(tm) Tests <http://book.cakephp.org/view.ctp/1196/Testing>
+ * CakePHP(tm) Tests <http://book.cakephp.org/view/1196/Testing>
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
  *
  * Licensed under The MIT License
@@ -8,7 +8,7 @@
  * Redistributions of files must retain the above copyright notice.
  *
  * @copyright     Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
- * @link          http://book.cakephp.org/view.ctp/1196/Testing CakePHP(tm) Tests
+ * @link          http://book.cakephp.org/view/1196/Testing CakePHP(tm) Tests
  * @package       Cake.Test.Case.Routing.Filter
  * @since         CakePHP(tm) v 2.2
  * @license       http://www.opensource.org/licenses/mit-license.php MIT License
@@ -130,7 +130,7 @@ class AssetDispatcherTest extends CakeTestCase {
 	}
 
 /**
- * Test that no exceptions are thrown for //edit.ctp type URLs.
+ * Test that no exceptions are thrown for //index.php type URLs.
  *
  * @return void
  */
@@ -138,7 +138,7 @@ class AssetDispatcherTest extends CakeTestCase {
 		$filter = new AssetDispatcher();
 
 		$response = $this->getMock('CakeResponse', array('_sendHeader'));
-		$request = new CakeRequest('//edit.ctp');
+		$request = new CakeRequest('//index.php');
 		$event = new CakeEvent('Dispatcher.beforeRequest', $this, compact('request', 'response'));
 
 		$this->assertNull($filter->beforeDispatch($event));

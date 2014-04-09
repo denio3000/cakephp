@@ -1,6 +1,6 @@
 <?php
 /**
- * A custom view.ctp class that is used for themeing
+ * A custom view class that is used for themeing
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -19,7 +19,7 @@
 App::uses('View', 'View');
 
 /**
- * Theme view.ctp class
+ * Theme view class
  *
  * Stub class for 2.1 Compatibility
  *

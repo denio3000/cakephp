@@ -15,7 +15,7 @@ class PostCategoriesController extends AppController {
     public function beforeFilter()
     {
         parent::beforeFilter();
-        $this->Auth->allow( 'view', 'index');
+        $this->Auth->allow( 'view', 'index', 'listall');
     }
 
     public function index ()
@@ -23,6 +23,15 @@ class PostCategoriesController extends AppController {
         $categories = $this->PostCategory->find('all');
         if (is_array($categories) || (count($categories) != 0)){
             $this->set('categories', $categories);
+        }
+    }
+    public function listall ()
+    {
+        $this->autoRender = false;
+
+        $categories = $this->PostCategory->find('all', array('fields' => 'PostCategory.id, PostCategory.title'));
+        if (is_array($categories) || (count($categories) != 0)){
+            return $categories;
         }
     }
 
@@ -47,6 +56,10 @@ class PostCategoriesController extends AppController {
         if(!empty ( $id )){
             $CategoryLoaded = $this->PostCategory->find('first', array('conditions'=>array('PostCategory.id' => $id)));
             $this->set('CategoryLoaded', $CategoryLoaded);
+
+            $this->loadModel('Post');
+            $posts = $this->Post->find('all', array('conditions'=> array('Post.cat_id ='.$id)));
+            $this->set('posts', $posts);
 
         }
     }

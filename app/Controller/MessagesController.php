@@ -24,7 +24,7 @@ class MessagesController extends AppController{
                 if ($this->request->is('ajax')){
                     $this->render('success','ajax');
                 }else{
-                    $this->Session->setFlash('Mesaj trimis!');
+                    $this->Session->setFlash('Mesaj trimis!','flash_success');
                     $this->redirect(array('action'=>'index'));
                 }
             }
@@ -46,6 +46,23 @@ class MessagesController extends AppController{
             $MessageLoaded = $this->Message->find('first', array('conditions'=>array('Message.id' => $id)));
             $this->set('MessageLoaded', $MessageLoaded);
 
+        }
+    }
+
+    public function delete($id = NULL ){
+
+        $this->autoRender = false;
+
+        if(!empty ( $id )){
+            $MessageLoaded = $this->Message->find('first', array('conditions'=>array('Message.id' => $id)));
+
+            $this->Message->delete($MessageLoaded['Message']['id']);
+
+            $this->Session->setFlash('Mesaj sters!','flash_success');
+            $this->redirect(array('action'=>'index'));
+        }else{
+            $this->Session->setFlash('Mesaj nu a putut fi sters!','flash_success');
+            $this->redirect(array('action'=>'index'));
         }
     }
 

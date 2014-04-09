@@ -18,8 +18,8 @@
 /**
  * ViewBlock implements the concept of Blocks or Slots in the View layer.
  * Slots or blocks are combined with extending views and layouts to afford slots
- * of content that are present in a layout or parent view.ctp, but are defined by the child
- * view.ctp or elements used in the view.ctp.
+ * of content that are present in a layout or parent view, but are defined by the child
+ * view or elements used in the view.
  *
  * @package Cake.View
  */
@@ -28,14 +28,14 @@ class ViewBlock {
 /**
  * Append content
  *
- * @constant APPEND
+ * @var string
  */
 	const APPEND = 'append';
 
 /**
  * Prepend content
  *
- * @constant PREPEND
+ * @var string
  */
 	const PREPEND = 'prepend';
 
@@ -66,7 +66,7 @@ class ViewBlock {
  * Start capturing output for a 'block'
  *
  * Blocks allow you to create slots or blocks of dynamic content in the layout.
- * view.ctp files can implement some or all of a layout's slots.
+ * view files can implement some or all of a layout's slots.
  *
  * You can end capturing blocks using View::end(). Blocks can be output
  * using View::get();
@@ -77,7 +77,7 @@ class ViewBlock {
  */
 	public function start($name) {
 		if (in_array($name, $this->_active)) {
-			throw new CakeException(__("A view.ctp block with the name '%s' is already/still open.", $name));
+			throw new CakeException(__("A view block with the name '%s' is already/still open.", $name));
 		}
 		$this->_active[] = $name;
 		ob_start();
@@ -87,7 +87,7 @@ class ViewBlock {
  * Start capturing output for a 'block' if it is empty
  *
  * Blocks allow you to create slots or blocks of dynamic content in the layout.
- * view.ctp files can implement some or all of a layout's slots.
+ * view files can implement some or all of a layout's slots.
  *
  * You can end capturing blocks using View::end(). Blocks can be output
  * using View::get();

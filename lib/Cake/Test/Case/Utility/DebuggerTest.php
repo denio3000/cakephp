@@ -274,6 +274,8 @@ class DebuggerTest extends CakeTestCase {
 
 /**
  * Test method for testing addFormat with callbacks.
+ *
+ * @return void
  */
 	public function customFormat($error, $strings) {
 		return $error['error'] . ': I eated an error ' . $error['file'];
@@ -319,7 +321,7 @@ object(View) {
 	)
 	viewPath => ''
 	viewVars => array()
-	view.ctp => null
+	view => null
 	layout => 'default'
 	layoutPath => null
 	autoLayout => true
@@ -347,7 +349,7 @@ TEXT;
 		(int) 1 => 'autoLayout',
 		(int) 2 => 'ext',
 		(int) 3 => 'helpers',
-		(int) 4 => 'view.ctp',
+		(int) 4 => 'view',
 		(int) 5 => 'layout',
 		(int) 6 => 'name',
 		(int) 7 => 'theme',

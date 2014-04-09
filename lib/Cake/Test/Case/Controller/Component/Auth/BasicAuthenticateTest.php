@@ -80,7 +80,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateNoData() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 
 		$this->response->expects($this->never())
 			->method('header');
@@ -94,7 +94,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateNoUsername() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$_SERVER['PHP_AUTH_PW'] = 'foobar';
 
 		$this->assertFalse($this->auth->authenticate($request, $this->response));
@@ -106,7 +106,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateNoPassword() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$_SERVER['PHP_AUTH_USER'] = 'mariano';
 		$_SERVER['PHP_AUTH_PW'] = null;
 
@@ -119,7 +119,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateInjection() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_USER'] = '> 1';
@@ -136,7 +136,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateChallenge() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		try {
@@ -156,7 +156,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateSuccess() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_USER'] = 'mariano';
@@ -181,7 +181,7 @@ class BasicAuthenticateTest extends CakeTestCase {
  */
 	public function testAuthenticateFailReChallenge() {
 		$this->auth->settings['scope'] = array('user' => 'nate');
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_USER'] = 'mariano';
@@ -199,7 +199,7 @@ class BasicAuthenticateTest extends CakeTestCase {
 		$hash = Security::hash('password', 'blowfish');
 		$this->skipIf(strpos($hash, '$2a$') === false, 'Skipping blowfish tests as hashing is not working');
 
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_USER'] = 'mariano';

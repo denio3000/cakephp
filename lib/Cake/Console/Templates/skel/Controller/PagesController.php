@@ -29,11 +29,11 @@ class PagesController extends AppController {
 	public $uses = array();
 
 /**
- * Displays a view.ctp
+ * Displays a view
  *
  * @param mixed What page to display
  * @return void
- * @throws NotFoundException When the view.ctp file could not be found
+ * @throws NotFoundException When the view file could not be found
  *	or MissingViewException in debug mode.
  */
 	public function display() {

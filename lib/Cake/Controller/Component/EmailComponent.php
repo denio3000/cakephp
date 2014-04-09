@@ -132,7 +132,7 @@ class EmailComponent extends Component {
 	public $layout = 'default';
 
 /**
- * Template for the view.ctp
+ * Template for the view
  *
  * @var string
  */

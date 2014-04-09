@@ -143,7 +143,8 @@ class AclShell extends AppShell {
 	}
 
 /**
- * Delete an ARO/ACO node.
+ * Delete an ARO/ACO node. Note there may be (as a result of poor configuration)
+ * multiple records with the same logical identifier. All are deleted.
  *
  * @return void
  */
@@ -151,12 +152,18 @@ class AclShell extends AppShell {
 		extract($this->_dataVars());
 
 		$identifier = $this->parseIdentifier($this->args[1]);
-		$nodeId = $this->_getNodeId($class, $identifier);
-
-		if (!$this->Acl->{$class}->delete($nodeId)) {
-			$this->error(__d('cake_console', 'Node Not Deleted') . __d('cake_console', 'There was an error deleting the %s. Check that the node exists.', $class) . "\n");
+		if (is_string($identifier)) {
+			$identifier = array('alias' => $identifier);
 		}
-		$this->out(__d('cake_console', '<success>%s deleted.</success>', $class), 2);
+
+		if ($this->Acl->{$class}->find('all', array('conditions' => $identifier))) {
+			if (!$this->Acl->{$class}->deleteAll($identifier)) {
+				$this->error(__d('cake_console', 'Node Not Deleted. ') . __d('cake_console', 'There was an error deleting the %s.', $class) . "\n");
+			}
+			$this->out(__d('cake_console', '<success>%s deleted.</success>', $class), 2);
+		} else {
+			$this->error(__d('cake_console', 'Node Not Deleted. ') . __d('cake_console', 'There was an error deleting the %s. Node does not exist.', $class) . "\n");
+		}
 	}
 
 /**
@@ -479,17 +486,17 @@ class AclShell extends AppShell {
 						'action' => array('help' => __d('cake_console', 'Action to inherit'), 'default' => 'all')
 					)
 				)
-			))->addSubcommand('view.ctp', array(
+			))->addSubcommand('view', array(
 				'help' => __d('cake_console', 'View a tree or a single node\'s subtree.'),
 				'parser' => array(
 					'description' => array(
-						__d('cake_console', "The view.ctp command will return the ARO or ACO tree."),
+						__d('cake_console', "The view command will return the ARO or ACO tree."),
 						__d('cake_console', "The optional node parameter allows you to return"),
 						__d('cake_console', "only a portion of the requested tree.")
 					),
 					'arguments' => array(
 						'type' => $type,
-						'node' => array('help' => __d('cake_console', 'The optional node to view.ctp the subtree of.'))
+						'node' => array('help' => __d('cake_console', 'The optional node to view the subtree of.'))
 					)
 				)
 			))->addSubcommand('initdb', array(

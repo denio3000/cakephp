@@ -35,7 +35,7 @@ class TestPluginPost extends TestPluginAppModel {
  *
  * @var string
  */
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 
 /**
  * Validation rules

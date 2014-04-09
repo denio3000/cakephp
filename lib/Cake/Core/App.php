@@ -66,28 +66,28 @@ class App {
 /**
  * Append paths
  *
- * @constant APPEND
+ * @var string
  */
 	const APPEND = 'append';
 
 /**
  * Prepend paths
  *
- * @constant PREPEND
+ * @var string
  */
 	const PREPEND = 'prepend';
 
 /**
  * Register package
  *
- * @constant REGISTER
+ * @var string
  */
 	const REGISTER = 'register';
 
 /**
  * Reset paths instead of merging
  *
- * @constant RESET
+ * @var boolean
  */
 	const RESET = true;
 
@@ -104,7 +104,7 @@ class App {
 		'controller' => array('suffix' => 'Controller', 'extends' => 'AppController', 'core' => true),
 		'component' => array('suffix' => 'Component', 'extends' => null, 'core' => true),
 		'lib' => array('extends' => null, 'core' => true),
-		'view.ctp' => array('suffix' => 'View', 'extends' => null, 'core' => true),
+		'view' => array('suffix' => 'View', 'extends' => null, 'core' => true),
 		'helper' => array('suffix' => 'Helper', 'extends' => 'AppHelper', 'core' => true),
 		'vendor' => array('extends' => null, 'core' => true),
 		'shell' => array('suffix' => 'Shell', 'extends' => 'AppShell', 'core' => true),

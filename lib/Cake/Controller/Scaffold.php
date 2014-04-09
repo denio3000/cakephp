@@ -47,7 +47,7 @@ class Scaffold {
 	public $name = null;
 
 /**
- * Name of current model this view.ctp context is attached to
+ * Name of current model this view context is attached to
  *
  * @var string
  */
@@ -91,7 +91,7 @@ class Scaffold {
 	);
 
 /**
- * Title HTML element for current scaffolded view.ctp
+ * Title HTML element for current scaffolded view
  *
  * @var string
  */
@@ -152,14 +152,14 @@ class Scaffold {
 	}
 
 /**
- * Renders a view.ctp action of scaffolded model.
+ * Renders a view action of scaffolded model.
  *
  * @param CakeRequest $request Request Object for scaffolding
- * @return mixed A rendered view.ctp of a row from Models database table
+ * @return mixed A rendered view of a row from Models database table
  * @throws NotFoundException
  */
 	protected function _scaffoldView(CakeRequest $request) {
-		if ($this->controller->beforeScaffold('view.ctp')) {
+		if ($this->controller->beforeScaffold('view')) {
 			if (isset($request->params['pass'][0])) {
 				$this->ScaffoldModel->id = $request->params['pass'][0];
 			}
@@ -172,7 +172,7 @@ class Scaffold {
 				Inflector::variable($this->controller->modelClass), $this->request->data
 			);
 			$this->controller->render($this->request['action'], $this->layout);
-		} elseif ($this->controller->scaffoldError('view.ctp') === false) {
+		} elseif ($this->controller->scaffoldError('view') === false) {
 			return $this->_scaffoldError();
 		}
 	}
@@ -181,7 +181,7 @@ class Scaffold {
  * Renders index action of scaffolded model.
  *
  * @param array $params Parameters for scaffolding
- * @return mixed A rendered view.ctp listing rows from Models database table
+ * @return mixed A rendered view listing rows from Models database table
  */
 	protected function _scaffoldIndex($params) {
 		if ($this->controller->beforeScaffold('index')) {
@@ -335,7 +335,7 @@ class Scaffold {
 /**
  * Show a scaffold error
  *
- * @return mixed A rendered view.ctp showing the error
+ * @return mixed A rendered view showing the error
  */
 	protected function _scaffoldError() {
 		return $this->controller->render('error', $this->layout);
@@ -359,7 +359,7 @@ class Scaffold {
 		if (isset($db)) {
 			if (empty($this->scaffoldActions)) {
 				$this->scaffoldActions = array(
-					'index', 'list', 'view.ctp', 'add', 'create', 'edit', 'update', 'delete'
+					'index', 'list', 'view', 'add', 'create', 'edit', 'update', 'delete'
 				);
 			} elseif (!empty($prefixes) && in_array($scaffoldPrefix, $prefixes)) {
 				$this->scaffoldActions = array(
@@ -383,7 +383,7 @@ class Scaffold {
 					case 'list':
 						$this->_scaffoldIndex($request);
 						break;
-					case 'view.ctp':
+					case 'view':
 						$this->_scaffoldView($request);
 						break;
 					case 'add':

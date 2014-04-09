@@ -63,7 +63,7 @@ if (!function_exists('debug')) {
  *
  * Only runs if debug level is greater than zero.
  *
- * @param boolean $var Variable to show debug information for.
+ * @param mixed $var Variable to show debug information for.
  * @param boolean $showHtml If set to true, the method prints the debug data in a browser-friendly way.
  * @param boolean $showFrom If set to true, the method prints from where the function was called.
  * @return void
@@ -236,7 +236,7 @@ if (!function_exists('pr')) {
  * print_r() will wrap <PRE> tags around the output of given array. Similar to debug().
  *
  * @see debug()
- * @param array $var Variable to print out
+ * @param mixed $var Variable to print out
  * @return void
  * @link http://book.cakephp.org/2.0/en/core-libraries/global-constants-and-functions.html#pr
  */
@@ -259,7 +259,7 @@ if (!function_exists('am')) {
  * @param array Third array
  * @param array Etc...
  * @return array All array parameters merged into one
- * @link http://book.cakephp.org/2.0/en/development/debugging.html#am
+ * @link http://book.cakephp.org/2.0/en/core-libraries/global-constants-and-functions.html#am
  */
 	function am() {
 		$r = array();
@@ -451,7 +451,7 @@ if (!function_exists('clearCache')) {
  * @param string|array $params As String name to be searched for deletion, if name is a directory all files in
  *   directory will be deleted. If array, names to be searched for deletion. If clearCache() without params,
  *   all files in app/tmp/cache/views will be deleted
- * @param string $type Directory in tmp/cache defaults to view.ctp directory
+ * @param string $type Directory in tmp/cache defaults to view directory
  * @param string $ext The file extension you are deleting
  * @return true if files found and deleted false otherwise
  */

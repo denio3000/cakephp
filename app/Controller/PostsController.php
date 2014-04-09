@@ -15,6 +15,13 @@ class PostsController extends AppController {
     public function beforeFilter()
     {
         parent::beforeFilter();
+        /*Ajax change layout
+        if ($this->request->is('ajax')) {
+            $this->layout = 'ajax';
+        } else {
+            $this->layout = 'post';
+        } */
+
         $this->Auth->allow( 'view', 'index', 'search');
     }
 
@@ -23,6 +30,7 @@ class PostsController extends AppController {
         $posts = $this->Post->find('all');
         foreach($posts as $key => $post) {
             $posts[$key]['Post']['name'] = $this->Post->getAuthorName($post['Post']['userid']);
+            $posts[$key]['Post']['category'] = $this->Post->getCatName($post['Post']['cat_id']);
         }
 
         if (is_array($posts) || (count($posts) != 0)){
@@ -32,7 +40,7 @@ class PostsController extends AppController {
         }
     }
 
-    public function edit ()
+    public function add ()
     {
         $this->layout = 'post';
         $userid = $this->Auth->user('id');
@@ -107,7 +115,7 @@ class PostsController extends AppController {
         }
         $this->set('posts',$results);
 
-        $this->render('index');
+        //$this->render('index');
 
     }
 

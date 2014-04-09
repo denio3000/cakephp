@@ -72,7 +72,7 @@ App::uses('HelpFormatter', 'Console');
  * ### Providing Help text
  *
  * By providing help text for your positional arguments and named arguments, the ConsoleOptionParser
- * can generate a help display for you. You can view.ctp the help for shells by using the `--help` or `-h` switch.
+ * can generate a help display for you. You can view the help for shells by using the `--help` or `-h` switch.
  *
  * @package       Cake.Console
  */

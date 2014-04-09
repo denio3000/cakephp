@@ -826,7 +826,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
 			$this->Controller, array('controller' => 'request_handler_test', 'action' => 'destination')
 		);
 		$result = ob_get_clean();
-		$this->assertRegExp('/Posts index/', $result, 'RequestAction redirect failed.');
+		$this->assertRegExp('/posts index/', $result, 'RequestAction redirect failed.');
 
 		App::build();
 	}
@@ -855,7 +855,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
 			$this->Controller, array('controller' => 'request_handler_test', 'action' => 'ajax2_layout')
 		);
 		$result = ob_get_clean();
-		$this->assertRegExp('/Posts index/', $result, 'RequestAction redirect failed.');
+		$this->assertRegExp('/posts index/', $result, 'RequestAction redirect failed.');
 		$this->assertRegExp('/Ajax!/', $result, 'Layout was not rendered.');
 
 		App::build();
@@ -879,7 +879,7 @@ class RequestHandlerComponentTest extends CakeTestCase {
 
 		$RequestHandler = $this->getMock('RequestHandlerComponent', array('_stop'), array(&$this->Controller->Components));
 		$RequestHandler->response = $this->getMock('CakeResponse', array('_sendHeader'));
-		$RequestHandler->request = new CakeRequest('Posts/index');
+		$RequestHandler->request = new CakeRequest('posts/index');
 		$RequestHandler->response = $this->getMock('CakeResponse', array('_sendHeader'));
 
 		ob_start();

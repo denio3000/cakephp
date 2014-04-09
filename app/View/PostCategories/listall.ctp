@@ -1,18 +1,19 @@
-<?php
-foreach ($categories as $category){ ?>
-    <div class="panel-group">
-        <h4>
-            <?php
-            echo $category['PostCategory']['id'].'. ';
-            echo $this->Html->link($category['PostCategory']['title'], array('controller'=>'PostCategories', 'action' => 'view', $category['PostCategory']['id']));
-            ?>
-        </h4>
-        <div class="panel-body">
-            <?php
-            echo $category['PostCategory']['description'].'<br/>';
-            ?>
+<div class="well">
+    <h4>Categories</h4>
+    <div class="row">
+        <div class="col-lg-6">
+            <ul class="list-unstyled">
+                <?php
+                foreach ($categories as $category){ ?>
+                    <li>
+                        <?php
+                        echo $this->Html->link($category['PostCategory']['title'], array('controller'=>'PostCategories', 'action' => 'view', $category['PostCategory']['id']));
+                        ?>
+                    </li>
+                <?php
+                }
+                ?>
+            </ul>
         </div>
     </div>
-<?php
-}
-?>
+</div>

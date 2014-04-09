@@ -74,7 +74,7 @@ class PaginatorComponent extends Component {
  * Pagination settings. These settings control pagination at a general level.
  * You can also define sub arrays for pagination settings for specific models.
  *
- * - `maxLimit` The maximum limit users can choose to view.ctp. Defaults to 100
+ * - `maxLimit` The maximum limit users can choose to view. Defaults to 100
  * - `limit` The initial number of items per page. Defaults to 20.
  * - `page` The starting page, defaults to 1.
  * - `paramType` What type of parameters you want pagination to use?

@@ -1352,6 +1352,8 @@ class SetTest extends CakeTestCase {
 
 /**
  * Test that extract() + matching can hit null things.
+ *
+ * @return void
  */
 	public function testExtractMatchesNull() {
 		$data = array(
@@ -2818,7 +2820,7 @@ class SetTest extends CakeTestCase {
 			<channel>
 			<title>Cake PHP Google Group</title>
 			<link>http://groups.google.com/group/cake-php</link>
-			<description>Search this group before posting anything. There are over 20,000 Posts and it&amp;#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.</description>
+			<description>Search this group before posting anything. There are over 20,000 posts and it&amp;#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.</description>
 			<language>en</language>
 				<item>
 				<title>constructng result array when using findall</title>
@@ -2845,7 +2847,7 @@ class SetTest extends CakeTestCase {
 			'channel' => array(
 				'title' => 'Cake PHP Google Group',
 				'link' => 'http://groups.google.com/group/cake-php',
-				'description' => 'Search this group before posting anything. There are over 20,000 Posts and it&#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.',
+				'description' => 'Search this group before posting anything. There are over 20,000 posts and it&#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.',
 				'language' => 'en',
 				'item' => array(
 					array(
@@ -2920,7 +2922,7 @@ class SetTest extends CakeTestCase {
 			<channel>
 			<title>Cake PHP Google Group</title>
 			<link>http://groups.google.com/group/cake-php</link>
-			<description>Search this group before posting anything. There are over 20,000 Posts and it&amp;#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.</description>
+			<description>Search this group before posting anything. There are over 20,000 posts and it&amp;#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.</description>
 			<language>en</language>
 				<item>
 				<title>constructng result array when using findall</title>
@@ -2955,7 +2957,7 @@ class SetTest extends CakeTestCase {
 			'channel' => array(
 				'title' => 'Cake PHP Google Group',
 				'link' => 'http://groups.google.com/group/cake-php',
-				'description' => 'Search this group before posting anything. There are over 20,000 Posts and it&#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.',
+				'description' => 'Search this group before posting anything. There are over 20,000 posts and it&#39;s very likely your question was answered before. Visit the IRC channel #cakephp at irc.freenode.net for live chat with users and developers of Cake. If you post, tell us the version of Cake, PHP, and database.',
 				'language' => 'en',
 				'item' => array(
 					array(

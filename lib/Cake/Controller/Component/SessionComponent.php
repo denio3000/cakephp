@@ -107,7 +107,7 @@ class SessionComponent extends Component {
 	}
 
 /**
- * Used to set a session variable that can be used to output messages in the view.ctp.
+ * Used to set a session variable that can be used to output messages in the view.
  *
  * In your controller: $this->Session->setFlash('This has been saved');
  *
@@ -117,7 +117,7 @@ class SessionComponent extends Component {
  *
  * @param string $message Message to be flashed
  * @param string $element Element to wrap flash message in.
- * @param array $params Parameters to be sent to layout as view.ctp variables
+ * @param array $params Parameters to be sent to layout as view variables
  * @param string $key Message key, default is 'flash'
  * @return void
  * @link http://book.cakephp.org/2.0/en/core-libraries/components/sessions.html#creating-notification-messages

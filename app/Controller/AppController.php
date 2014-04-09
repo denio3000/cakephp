@@ -33,6 +33,9 @@ App::uses('Controller', 'Controller');
 class AppController extends Controller {
 
     var $helpers = array('Html', 'Form', 'Js');
+
+     // sessions support
+    // authorization for login and logut redirect
     public $components = array(
         'RequestHandler',
         'DebugKit.Toolbar',
@@ -40,44 +43,22 @@ class AppController extends Controller {
         'Auth' => array(
             'loginRedirect' => array('controller' => 'users', 'action' => 'index'),
             'logoutRedirect' => array('controller' => 'users', 'action' => 'login'),
-            'authError'=>"You don't have access to view that page",
-            'loginAction' => array(
-                'controller' => 'users',
-                'action' => 'login'
-            ),
-            'authorize' => array('Controller')
+            'authError' => 'You must be logged in to view this page.',
+            'loginError' => 'Invalid Username or Password entered, please try again.'
         )
-    );
+      );
 
-//Determine the loggedin user what access pages have to
-    public function isAuthorized($user){
-        return true;
+// only allow the login controllers only
+    public function beforeFilter() {
+        $this->Auth->allow('login');
+        $this->set('current_user' , $this->Auth->user());
+        $this->set('logged_in',$this->Auth->loggedIn());
     }
 
-//Determine the nonloggedin user what access have to
-    public function beforeFilter(){
+    public function isAuthorized($user) {
+        // Here is where we should verify the role and give access based on role
 
-        $this->Auth->authorize = array('controller');
-        $this->Auth->loginAction = array(
-            'controller' => 'users',
-            'action' => 'login'
-        );
-
-        $this->set('logged_in', $this->Auth->loggedIn());
-        $this->set('current_user' , $this->Auth->user());
-
-     // Write session
-        $loadUser = $this->Auth->user();
-        SessionComponent::write("User.id", $loadUser['id']);
-        SessionComponent::write("User.username", $loadUser['username']);
-        SessionComponent::write("User.role", $loadUser['role']);
-
-     // Ajax change layout
-        if ($this->request->is('ajax')) {
-            $this->layout = 'ajax';
-        } else {
-            $this->layout = 'post';
-        }
+        return true;
     }
 
 }

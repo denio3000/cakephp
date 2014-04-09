@@ -174,13 +174,8 @@ class JsHelperTest extends CakeTestCase {
 	protected function _useMock() {
 		$request = new CakeRequest(null, false);
 
-		if (!class_exists('TestJsEngineHelper', false)) {
-			$this->getMock('JsBaseEngineHelper', array(), array($this->View), 'TestJsEngineHelper');
-		}
-
 		$this->Js = new JsHelper($this->View, array('TestJs'));
-		$this->Js->TestJsEngine = new TestJsEngineHelper($this->View);
-		$this->mockObjects[] = $this->Js->TestJsEngine;
+		$this->Js->TestJsEngine = $this->getMock('JsBaseEngineHelper', array(), array($this->View));
 		$this->Js->request = $request;
 		$this->Js->Html = new HtmlHelper($this->View);
 		$this->Js->Html->request = $request;
@@ -369,7 +364,7 @@ class JsHelperTest extends CakeTestCase {
 
 		Configure::write('Cache.disable', false);
 		$this->Js->request->webroot = '/';
-		$this->Js->JsBaseEngine = new TestJsEngineHelper($this->View);
+		$this->Js->JsBaseEngine = $this->getMock('JsBaseEngineHelper', array(), array($this->View));
 		$this->Js->buffer('one = 1;');
 		$this->Js->buffer('two = 2;');
 		$result = $this->Js->writeBuffer(array('onDomReady' => false, 'cache' => true));
@@ -408,16 +403,16 @@ class JsHelperTest extends CakeTestCase {
 
 		$this->Js->TestJsEngine->expects($this->at(1))
 			->method('request')
-			->with('/Posts/view.ctp/1', $options)
+			->with('/posts/view/1', $options)
 			->will($this->returnValue('--ajax code--'));
 
 		$this->Js->TestJsEngine->expects($this->at(2))
 			->method('event')
 			->with('click', '--ajax code--', $options + array('buffer' => null));
 
-		$result = $this->Js->link('test link', '/Posts/view.ctp/1', $options);
+		$result = $this->Js->link('test link', '/posts/view/1', $options);
 		$expected = array(
-			'a' => array('id' => 'preg:/link-\d+/', 'href' => '/Posts/view.ctp/1'),
+			'a' => array('id' => 'preg:/link-\d+/', 'href' => '/posts/view/1'),
 			'test link',
 			'/a'
 		);
@@ -446,15 +441,15 @@ class JsHelperTest extends CakeTestCase {
 
 		$this->Js->TestJsEngine->expects($this->once())
 			->method('request')
-			->with('/Posts/view.ctp/1');
+			->with('/posts/view/1');
 
 		$this->Js->TestJsEngine->expects($this->once())
 			->method('event')
 			->with('click', '--confirm script--');
 
-		$result = $this->Js->link('test link »', '/Posts/view.ctp/1', $options);
+		$result = $this->Js->link('test link »', '/posts/view/1', $options);
 		$expected = array(
-			'a' => array('id' => $options['id'], 'class' => $options['class'], 'href' => '/Posts/view.ctp/1'),
+			'a' => array('id' => $options['id'], 'class' => $options['class'], 'href' => '/posts/view/1'),
 			'test link »',
 			'/a'
 		);
@@ -470,9 +465,9 @@ class JsHelperTest extends CakeTestCase {
 		$this->_useMock();
 
 		$options = array('id' => 'something', 'htmlAttributes' => array('arbitrary' => 'value', 'batman' => 'robin'));
-		$result = $this->Js->link('test link', '/Posts/view.ctp/1', $options);
+		$result = $this->Js->link('test link', '/posts/view/1', $options);
 		$expected = array(
-			'a' => array('id' => $options['id'], 'href' => '/Posts/view.ctp/1', 'arbitrary' => 'value',
+			'a' => array('id' => $options['id'], 'href' => '/posts/view/1', 'arbitrary' => 'value',
 				'batman' => 'robin'),
 			'test link',
 			'/a'
@@ -490,7 +485,7 @@ class JsHelperTest extends CakeTestCase {
 
 		$this->Js->TestJsEngine->expects($this->at(1))
 			->method('request')
-			->with('/Posts/view.ctp/1', array('update' => '#content'))
+			->with('/posts/view/1', array('update' => '#content'))
 			->will($this->returnValue('ajax code'));
 
 		$this->Js->TestJsEngine->expects($this->at(2))
@@ -498,9 +493,9 @@ class JsHelperTest extends CakeTestCase {
 			->will($this->returnValue('-event handler-'));
 
 		$options = array('update' => '#content', 'buffer' => false);
-		$result = $this->Js->link('test link', '/Posts/view.ctp/1', $options);
+		$result = $this->Js->link('test link', '/posts/view/1', $options);
 		$expected = array(
-			'a' => array('id' => 'preg:/link-\d+/', 'href' => '/Posts/view.ctp/1'),
+			'a' => array('id' => 'preg:/link-\d+/', 'href' => '/posts/view/1'),
 			'test link',
 			'/a',
 			'script' => array('type' => 'text/javascript'),
@@ -522,7 +517,7 @@ class JsHelperTest extends CakeTestCase {
 
 		$this->Js->TestJsEngine->expects($this->at(1))
 			->method('request')
-			->with('/Posts/view.ctp/1', array('update' => '#content'))
+			->with('/posts/view/1', array('update' => '#content'))
 			->will($this->returnValue('ajax code'));
 
 		$this->Js->TestJsEngine->expects($this->at(2))
@@ -530,10 +525,10 @@ class JsHelperTest extends CakeTestCase {
 			->will($this->returnValue('-event handler-'));
 
 		$options = array('update' => '#content', 'buffer' => false, 'safe' => false);
-		$result = $this->Js->link('test link', '/Posts/view.ctp/1', $options);
+		$result = $this->Js->link('test link', '/posts/view/1', $options);
 
 		$expected = array(
-			'a' => array('id' => 'preg:/link-\d+/', 'href' => '/Posts/view.ctp/1'),
+			'a' => array('id' => 'preg:/link-\d+/', 'href' => '/posts/view/1'),
 			'test link',
 			'/a',
 			'script' => array('type' => 'text/javascript'),
@@ -853,8 +848,8 @@ class JsBaseEngineTest extends CakeTestCase {
  * @return void
  */
 	public function testRedirect() {
-		$result = $this->JsEngine->redirect(array('controller' => 'Posts', 'action' => 'view.ctp', 1));
-		$expected = 'window.location = "/Posts/view.ctp/1";';
+		$result = $this->JsEngine->redirect(array('controller' => 'posts', 'action' => 'view', 1));
+		$expected = 'window.location = "/posts/view/1";';
 		$this->assertEquals($expected, $result);
 	}
 
@@ -941,12 +936,12 @@ class JsBaseEngineTest extends CakeTestCase {
 	public function testOptionParsing() {
 		$JsEngine = new OptionEngineHelper($this->View);
 
-		$result = $JsEngine->testParseOptions(array('url' => '/Posts/view.ctp/1', 'key' => 1));
-		$expected = 'key:1, url:"\\/Posts\\/view.ctp\\/1"';
+		$result = $JsEngine->testParseOptions(array('url' => '/posts/view/1', 'key' => 1));
+		$expected = 'key:1, url:"\\/posts\\/view\\/1"';
 		$this->assertEquals($expected, $result);
 
-		$result = $JsEngine->testParseOptions(array('url' => '/Posts/view.ctp/1', 'success' => 'doSuccess'), array('success'));
-		$expected = 'success:doSuccess, url:"\\/Posts\\/view.ctp\\/1"';
+		$result = $JsEngine->testParseOptions(array('url' => '/posts/view/1', 'success' => 'doSuccess'), array('success'));
+		$expected = 'success:doSuccess, url:"\\/posts\\/view\\/1"';
 		$this->assertEquals($expected, $result);
 	}
 

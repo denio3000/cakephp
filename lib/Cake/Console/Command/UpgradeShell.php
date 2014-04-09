@@ -564,7 +564,7 @@ class UpgradeShell extends AppShell {
 /**
  * Move application views files to where they now should be
  *
- * Find all view.ctp files in the folder and determine where cake expects the file to be
+ * Find all view files in the folder and determine where cake expects the file to be
  *
  * @return void
  */

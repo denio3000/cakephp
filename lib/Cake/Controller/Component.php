@@ -30,8 +30,8 @@ App::uses('ComponentCollection', 'Controller');
  *
  * - `initialize()` - Fired before the controller's beforeFilter method.
  * - `startup()` - Fired after the controller's beforeFilter method.
- * - `beforeRender()` - Fired before the view.ctp + layout are rendered.
- * - `shutdown()` - Fired after the action is complete and the view.ctp has been rendered
+ * - `beforeRender()` - Fired before the view + layout are rendered.
+ * - `shutdown()` - Fired after the action is complete and the view has been rendered
  *    but before Controller::afterFilter().
  * - `beforeRedirect()` - Fired before a redirect() is done.
  *
@@ -122,7 +122,7 @@ class Component extends Object {
 
 /**
  * Called before the Controller::beforeRender(), and before
- * the view.ctp class is loaded, and before Controller::render()
+ * the view class is loaded, and before Controller::render()
  *
  * @param Controller $controller Controller with components to beforeRender
  * @return void

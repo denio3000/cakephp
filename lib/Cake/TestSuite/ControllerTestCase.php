@@ -91,9 +91,10 @@ class ControllerTestDispatcher extends Dispatcher {
 class InterceptContentHelper extends Helper {
 
 /**
- * Intercepts and stores the contents of the view.ctp before the layout is rendered
+ * Intercepts and stores the contents of the view before the layout is rendered
  *
- * @param string $viewFile The view.ctp file
+ * @param string $viewFile The view file
+ * @return void
  */
 	public function afterRender($viewFile) {
 		$this->_View->assign('__view_no_layout__', $this->_View->fetch('content'));
@@ -131,21 +132,21 @@ abstract class ControllerTestCase extends CakeTestCase {
 	public $loadRoutes = true;
 
 /**
- * The resulting view.ctp vars of the last testAction call
+ * The resulting view vars of the last testAction call
  *
  * @var array
  */
 	public $vars = null;
 
 /**
- * The resulting rendered view.ctp of the last testAction call
+ * The resulting rendered view of the last testAction call
  *
  * @var string
  */
 	public $view = null;
 
 /**
- * The resulting rendered layout+view.ctp of the last testAction call
+ * The resulting rendered layout+view of the last testAction call
  *
  * @var string
  */
@@ -201,9 +202,9 @@ abstract class ControllerTestCase extends CakeTestCase {
  *   payloads to your controllers allowing you to test REST webservices.
  * - `method` POST or GET. Defaults to POST.
  * - `return` Specify the return type you want. Choose from:
- *     - `vars` Get the set view.ctp variables.
- *     - `view.ctp` Get the rendered view.ctp, without a layout.
- *     - `contents` Get the rendered view.ctp including the layout.
+ *     - `vars` Get the set view variables.
+ *     - `view` Get the rendered view, without a layout.
+ *     - `contents` Get the rendered view including the layout.
  *     - `result` Get the return value of the controller action. Useful
  *       for testing requestAction methods.
  *
@@ -292,7 +293,7 @@ abstract class ControllerTestCase extends CakeTestCase {
  * ### Mocks:
  *
  * - `methods` Methods to mock on the controller. `_stop()` is mocked by default
- * - `models` Models to mock. Models are added to the ClassRegistry so they any
+ * - `models` Models to mock. Models are added to the ClassRegistry so any
  *   time they are instantiated the mock will be created. Pass as key value pairs
  *   with the value being specific methods on the model to mock. If `true` or
  *   no value is passed, the entire model will be mocked.

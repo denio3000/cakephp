@@ -2,7 +2,7 @@
 /**
  * ViewTask Test file
  *
- * Test Case for view.ctp generation shell task
+ * Test Case for view generation shell task
  *
  * CakePHP : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -231,7 +231,7 @@ class ViewTaskTest extends CakeTestCase {
 			'fields' => array('id', 'name', 'body'),
 			'associations' => array()
 		);
-		$result = $this->Task->getContent('view.ctp', $vars);
+		$result = $this->Task->getContent('view', $vars);
 
 		$this->assertRegExp('/Delete Test View Model/', $result);
 		$this->assertRegExp('/Edit Test View Model/', $result);
@@ -292,11 +292,11 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'view.ctp.ctp',
+				TMP . 'ViewTaskComments' . DS . 'view.ctp',
 				$this->stringContains('View Task Articles')
 			);
 
-		$this->Task->bake('view.ctp', true);
+		$this->Task->bake('view', true);
 	}
 
 /**
@@ -325,14 +325,14 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->stringContains("\$viewTaskComment['Article']['title']")
 			);
 		$this->Task->bake('index', true);
 	}
 
 /**
- * test that baking a view.ctp with no template doesn't make a file.
+ * test that baking a view with no template doesn't make a file.
  *
  * @return void
  */
@@ -355,16 +355,16 @@ class ViewTaskTest extends CakeTestCase {
 
 		//fake plugin path
 		CakePlugin::load('TestTest', array('path' => APP . 'Plugin' . DS . 'TestTest' . DS));
-		$path = APP . 'Plugin' . DS . 'TestTest' . DS . 'View' . DS . 'ViewTaskComments' . DS . 'view.ctp.ctp';
+		$path = APP . 'Plugin' . DS . 'TestTest' . DS . 'View' . DS . 'ViewTaskComments' . DS . 'view.ctp';
 
 		$result = $this->Task->getContent('index');
-		$this->assertNotContains('List Test Test.view.ctp Task Articles', $result);
+		$this->assertNotContains('List Test Test.view Task Articles', $result);
 
 		$this->Task->expects($this->once())
 			->method('createFile')
 			->with($path, $this->anything());
 
-		$this->Task->bake('view.ctp', true);
+		$this->Task->bake('view', true);
 		CakePlugin::unload();
 	}
 
@@ -378,7 +378,7 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'view.ctp.ctp',
+				TMP . 'ViewTaskComments' . DS . 'view.ctp',
 				$this->stringContains('View Task Comments')
 			);
 		$this->Task->expects($this->at(1))->method('createFile')
@@ -388,11 +388,11 @@ class ViewTaskTest extends CakeTestCase {
 			);
 		$this->Task->expects($this->at(2))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->stringContains('ViewTaskComment')
 			);
 
-		$this->Task->bakeActions(array('view.ctp', 'edit', 'index'), array());
+		$this->Task->bakeActions(array('view', 'edit', 'index'), array());
 	}
 
 /**
@@ -428,7 +428,7 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->anything()
 			);
 		$this->Task->expects($this->at(1))->method('createFile')
@@ -454,7 +454,7 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->once())->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->anything()
 			);
 
@@ -462,24 +462,24 @@ class ViewTaskTest extends CakeTestCase {
 	}
 
 /**
- * test `cake bake view.ctp $controller view.ctp`
+ * test `cake bake view $controller view`
  *
  * @return void
  */
 	public function testExecuteWithActionParam() {
 		$this->Task->args[0] = 'ViewTaskComments';
-		$this->Task->args[1] = 'view.ctp';
+		$this->Task->args[1] = 'view';
 
 		$this->Task->expects($this->once())->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'view.ctp.ctp',
+				TMP . 'ViewTaskComments' . DS . 'view.ctp',
 				$this->anything()
 			);
 		$this->Task->execute();
 	}
 
 /**
- * test `cake bake view.ctp $controller`
+ * test `cake bake view $controller`
  * Ensure that views are only baked for actions that exist in the controller.
  *
  * @return void
@@ -489,7 +489,7 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->anything()
 			);
 		$this->Task->expects($this->at(1))->method('createFile')
@@ -522,7 +522,7 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(0))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->anything()
 			);
 		$this->Task->expects($this->at(1))->method('createFile')
@@ -534,7 +534,7 @@ class ViewTaskTest extends CakeTestCase {
 	}
 
 /**
- * test `cake bake view.ctp $controller --admin`
+ * test `cake bake view $controller --admin`
  * Which only bakes admin methods, not non-admin methods.
  *
  * @return void
@@ -579,13 +579,13 @@ class ViewTaskTest extends CakeTestCase {
 
 		$this->Task->expects($this->at(3))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'edit.ctp',
+				TMP . 'ViewTaskComments' . DS . 'index.ctp',
 				$this->stringContains('ViewTaskComment')
 			);
 
 		$this->Task->expects($this->at(4))->method('createFile')
 			->with(
-				TMP . 'ViewTaskComments' . DS . 'view.ctp.ctp',
+				TMP . 'ViewTaskComments' . DS . 'view.ctp',
 				$this->stringContains('ViewTaskComment')
 			);
 
@@ -606,7 +606,7 @@ class ViewTaskTest extends CakeTestCase {
 	}
 
 /**
- * test `cake bake view.ctp Posts index list`
+ * test `cake bake view posts index list`
  *
  * @return void
  */

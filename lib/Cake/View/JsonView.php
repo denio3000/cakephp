@@ -15,33 +15,33 @@
 App::uses('View', 'View');
 
 /**
- * A view.ctp class that is used for JSON responses.
+ * A view class that is used for JSON responses.
  *
- * By setting the '_serialize' key in your controller, you can specify a view.ctp variable
+ * By setting the '_serialize' key in your controller, you can specify a view variable
  * that should be serialized to JSON and used as the response for the request.
- * This allows you to omit views and layouts if you just need to emit a single view.ctp
+ * This allows you to omit views and layouts if you just need to emit a single view
  * variable as the JSON response.
  *
  * In your controller, you could do the following:
  *
- * `$this->set(array('Posts' => $Posts, '_serialize' => 'Posts'));`
+ * `$this->set(array('posts' => $posts, '_serialize' => 'posts'));`
  *
- * When the view.ctp is rendered, the `$Posts` view.ctp variable will be serialized
+ * When the view is rendered, the `$posts` view variable will be serialized
  * into JSON.
  *
  * You can also define `'_serialize'` as an array. This will create a top level object containing
- * all the named view.ctp variables:
+ * all the named view variables:
  *
  * {{{
- * $this->set(compact('Posts', 'users', 'stuff'));
- * $this->set('_serialize', array('Posts', 'users'));
+ * $this->set(compact('posts', 'users', 'stuff'));
+ * $this->set('_serialize', array('posts', 'users'));
  * }}}
  *
  * The above would generate a JSON object that looks like:
  *
- * `{"Posts": [...], "users": [...]}`
+ * `{"posts": [...], "users": [...]}`
  *
- * If you don't use the `_serialize` key, you will need a view.ctp. You can use extended
+ * If you don't use the `_serialize` key, you will need a view. You can use extended
  * views to provide layout-like functionality.
  *
  * You can also enable JSONP support by setting parameter `_jsonp` to true or a string to specify
@@ -73,7 +73,7 @@ class JsonView extends View {
 	}
 
 /**
- * Skip loading helpers if this is a _serialize based view.ctp.
+ * Skip loading helpers if this is a _serialize based view.
  *
  * @return void
  */
@@ -85,20 +85,20 @@ class JsonView extends View {
 	}
 
 /**
- * Render a JSON view.ctp.
+ * Render a JSON view.
  *
  * ### Special parameters
- * `_serialize` To convert a set of view.ctp variables into a JSON response.
+ * `_serialize` To convert a set of view variables into a JSON response.
  *   Its value can be a string for single variable name or array for multiple names.
- *   You can omit the`_serialize` parameter, and use a normal view.ctp + layout as well.
+ *   You can omit the`_serialize` parameter, and use a normal view + layout as well.
  * `_jsonp` Enables JSONP support and wraps response in callback function provided in query string.
  *   - Setting it to true enables the default query string parameter "callback".
  *   - Setting it to a string value, uses the provided query string parameter for finding the
  *     JSONP callback name.
  *
- * @param string $view The view.ctp being rendered.
+ * @param string $view The view being rendered.
  * @param string $layout The layout being rendered.
- * @return string The rendered view.ctp.
+ * @return string The rendered view.
  */
 	public function render($view = null, $layout = null) {
 		$return = null;
@@ -123,7 +123,7 @@ class JsonView extends View {
 	}
 
 /**
- * Serialize view.ctp vars
+ * Serialize view vars
  *
  * @param array $serialize The viewVars that need to be serialized
  * @return string The serialized data

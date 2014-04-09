@@ -122,6 +122,7 @@ class AclUser extends CakeTestModel {
 /**
  * parentNode
  *
+ * @return null
  */
 	public function parentNode() {
 		return null;
@@ -148,7 +149,7 @@ class AclPost extends CakeTestModel {
  *
  * @var string
  */
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 
 /**
  * actsAs property
@@ -160,6 +161,7 @@ class AclPost extends CakeTestModel {
 /**
  * parentNode
  *
+ * @return null
  */
 	public function parentNode() {
 		return null;

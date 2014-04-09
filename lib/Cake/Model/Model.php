@@ -657,10 +657,10 @@ class Model extends Object implements CakeEventListener {
  * You can dynamically create model instances using the $id array syntax.
  *
  * {{{
- * $Post = new Model(array('table' => 'Posts', 'name' => 'Post', 'ds' => 'connection2'));
+ * $Post = new Model(array('table' => 'posts', 'name' => 'Post', 'ds' => 'connection2'));
  * }}}
  *
- * Would create a model attached to the Posts table on connection2. Dynamic model creation is useful
+ * Would create a model attached to the posts table on connection2. Dynamic model creation is useful
  * when you want a model object that contains no associations or attached behaviors.
  *
  * @param boolean|integer|string|array $id Set this ID for this model on startup,
@@ -1408,7 +1408,7 @@ class Model extends Object implements CakeEventListener {
 			list($model, $column) = explode('.', $column);
 		}
 
-		if ($model != $this->alias && isset($this->{$model})) {
+		if (isset($model) && $model != $this->alias && isset($this->{$model})) {
 			return $this->{$model}->getColumnType($column);
 		}
 
@@ -2703,8 +2703,9 @@ class Model extends Object implements CakeEventListener {
 		}
 
 		$ids = $this->find('all', array_merge(array(
-			'fields' => "DISTINCT {$this->alias}.{$this->primaryKey}",
+			'fields' => "{$this->alias}.{$this->primaryKey}",
 			'order' => false,
+			'group' => "{$this->alias}.{$this->primaryKey}",
 			'recursive' => 0), compact('conditions'))
 		);
 
