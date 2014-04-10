@@ -118,7 +118,7 @@ class ScaffoldViewTest extends CakeTestCase {
 		$this->Controller->request->params['action'] = 'index';
 		$ScaffoldView = new TestScaffoldView($this->Controller);
 		$result = $ScaffoldView->testGetFilename('index');
-		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'edit.ctp';
+		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'index.ctp';
 		$this->assertEquals($expected, $result);
 
 		$result = $ScaffoldView->testGetFilename('edit');
@@ -129,16 +129,16 @@ class ScaffoldViewTest extends CakeTestCase {
 		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'form.ctp';
 		$this->assertEquals($expected, $result);
 
-		$result = $ScaffoldView->testGetFilename('view.ctp');
-		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'view.ctp.ctp';
+		$result = $ScaffoldView->testGetFilename('view');
+		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'view.ctp';
 		$this->assertEquals($expected, $result);
 
 		$result = $ScaffoldView->testGetFilename('admin_index');
-		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'edit.ctp';
+		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'index.ctp';
 		$this->assertEquals($expected, $result);
 
 		$result = $ScaffoldView->testGetFilename('admin_view');
-		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'view.ctp.ctp';
+		$expected = CAKE . 'View' . DS . 'Scaffolds' . DS . 'view.ctp';
 		$this->assertEquals($expected, $result);
 
 		$result = $ScaffoldView->testGetFilename('admin_edit');
@@ -192,7 +192,7 @@ class ScaffoldViewTest extends CakeTestCase {
 	}
 
 /**
- * test getting the view.ctp file name for themed scaffolds.
+ * test getting the view file name for themed scaffolds.
  *
  * @return void
  */
@@ -204,7 +204,7 @@ class ScaffoldViewTest extends CakeTestCase {
 
 		$result = $ScaffoldView->testGetFilename('index');
 		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS .
-			'Themed' . DS . 'TestTheme' . DS . 'Posts' . DS . 'scaffold.edit.ctp';
+			'Themed' . DS . 'TestTheme' . DS . 'Posts' . DS . 'scaffold.index.ctp';
 		$this->assertEquals($expected, $result);
 	}
 
@@ -241,14 +241,14 @@ class ScaffoldViewTest extends CakeTestCase {
 		$this->assertRegExp('#<h2>Scaffold Mock</h2>#', $result);
 		$this->assertRegExp('#<table cellpadding="0" cellspacing="0">#', $result);
 
-		$this->assertRegExp('#<a href="/scaffold_users/view.ctp/1">1</a>#', $result); //belongsTo links
+		$this->assertRegExp('#<a href="/scaffold_users/view/1">1</a>#', $result); //belongsTo links
 		$this->assertRegExp('#<li><a href="/scaffold_mock/add">New Scaffold Mock</a></li>#', $result);
 		$this->assertRegExp('#<li><a href="/scaffold_users">List Scaffold Users</a></li>#', $result);
 		$this->assertRegExp('#<li><a href="/scaffold_comments/add">New Comment</a></li>#', $result);
 	}
 
 /**
- * test default view.ctp scaffold generation
+ * test default view scaffold generation
  *
  * @return void
  */
@@ -261,9 +261,9 @@ class ScaffoldViewTest extends CakeTestCase {
 			'pass' => array(1),
 			'form' => array(),
 			'named' => array(),
-			'url' => array('url' => 'scaffold_mock/view.ctp/1'),
+			'url' => array('url' => 'scaffold_mock/view/1'),
 			'controller' => 'scaffold_mock',
-			'action' => 'view.ctp',
+			'action' => 'view',
 		);
 		$this->Controller->request->addParams($params);
 
@@ -280,7 +280,7 @@ class ScaffoldViewTest extends CakeTestCase {
 		$this->assertRegExp('/<h2>View Scaffold Mock<\/h2>/', $result);
 		$this->assertRegExp('/<dl>/', $result);
 
-		$this->assertRegExp('/<a href="\/scaffold_users\/view.ctp\/1">1<\/a>/', $result); //belongsTo links
+		$this->assertRegExp('/<a href="\/scaffold_users\/view\/1">1<\/a>/', $result); //belongsTo links
 		$this->assertRegExp('/<li><a href="\/scaffold_mock\/edit\/1">Edit Scaffold Mock<\/a>\s<\/li>/', $result);
 		$this->assertRegExp('/<a href="\#" onclick="if[^>]*>Delete Scaffold Mock<\/a>\s<\/li>/', $result);
 		//check related table
@@ -290,7 +290,7 @@ class ScaffoldViewTest extends CakeTestCase {
 	}
 
 /**
- * test default view.ctp scaffold generation
+ * test default view scaffold generation
  *
  * @return void
  */

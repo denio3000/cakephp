@@ -64,9 +64,9 @@ class CrudAuthorizeTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthorizeNoMappedAction() {
-		$request = new CakeRequest('/Posts/foobar', false);
+		$request = new CakeRequest('/posts/foobar', false);
 		$request->addParams(array(
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'foobar'
 		));
 		$user = array('User' => array('user' => 'mark'));
@@ -80,9 +80,9 @@ class CrudAuthorizeTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthorizeCheckSuccess() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array(
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 		$user = array('User' => array('user' => 'mark'));
@@ -102,9 +102,9 @@ class CrudAuthorizeTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthorizeCheckFailure() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array(
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 		$user = array('User' => array('user' => 'mark'));
@@ -133,7 +133,7 @@ class CrudAuthorizeTest extends CakeTestCase {
 			'index' => 'read',
 			'add' => 'create',
 			'edit' => 'update',
-			'view.ctp' => 'read',
+			'view' => 'read',
 			'remove' => 'delete'
 		);
 		$this->assertEquals($expected, $result);
@@ -161,7 +161,7 @@ class CrudAuthorizeTest extends CakeTestCase {
 			'read' => 'read',
 			'index' => 'read',
 			'edit' => 'update',
-			'view.ctp' => 'read',
+			'view' => 'read',
 			'delete' => 'delete',
 			'remove' => 'delete',
 			'generate' => 'create',

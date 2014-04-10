@@ -1,2 +1,0 @@
-$(document).ready(function () {$("#submit-463494413").bind("click", function (event) {$.ajax({beforeSend:function (XMLHttpRequest) {$("#sending").fadeIn();}, data:$("#submit-463494413").closest("form").serialize(), success:function (data, textStatus) {$("#sending").fadeOut();}, type:"post", url:"\/cakephp\/messages"});
-return false;});});

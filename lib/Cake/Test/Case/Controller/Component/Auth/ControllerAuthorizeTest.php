@@ -46,6 +46,7 @@ class ControllerAuthorizeTest extends CakeTestCase {
 
 /**
  * @expectedException PHPUnit_Framework_Error
+ * @return void
  */
 	public function testControllerTypeError() {
 		$this->auth->controller(new StdClass());
@@ -53,6 +54,7 @@ class ControllerAuthorizeTest extends CakeTestCase {
 
 /**
  * @expectedException CakeException
+ * @return void
  */
 	public function testControllerErrorOnMissingMethod() {
 		$this->auth->controller(new Controller());
@@ -65,7 +67,7 @@ class ControllerAuthorizeTest extends CakeTestCase {
  */
 	public function testAuthorizeFailure() {
 		$user = array();
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 		$this->assertFalse($this->auth->authorize($user, $request));
 	}
 
@@ -76,7 +78,7 @@ class ControllerAuthorizeTest extends CakeTestCase {
  */
 	public function testAuthorizeSuccess() {
 		$user = array('User' => array('username' => 'mark'));
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 
 		$this->controller->expects($this->once())
 			->method('isAuthorized')
@@ -85,4 +87,5 @@ class ControllerAuthorizeTest extends CakeTestCase {
 
 		$this->assertTrue($this->auth->authorize($user, $request));
 	}
+
 }

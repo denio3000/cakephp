@@ -159,7 +159,7 @@ class RequestHandlerComponent extends Component {
 			return;
 		}
 
-		$accepts = $this->response->mapType($this->request->parseAccept());
+		$accepts = $this->response->mapType($accept);
 		$preferedTypes = current($accepts);
 		if (array_intersect($preferedTypes, array('html', 'xhtml'))) {
 			return null;
@@ -182,9 +182,9 @@ class RequestHandlerComponent extends Component {
  * - Disabling layout rendering for Ajax requests (based on the HTTP_X_REQUESTED_WITH header)
  * - If Router::parseExtensions() is enabled, the layout and template type are
  *   switched based on the parsed extension or Accept-Type header. For example, if `controller/action.xml`
- *   is requested, the view.ctp path becomes `app/View/Controller/xml/action.ctp`. Also if
+ *   is requested, the view path becomes `app/View/Controller/xml/action.ctp`. Also if
  *   `controller/action` is requested with `Accept-Type: application/xml` in the headers
- *   the view.ctp path will become `app/View/Controller/xml/action.ctp`. Layout and template
+ *   the view path will become `app/View/Controller/xml/action.ctp`. Layout and template
  *   types will only switch to mime-types recognized by CakeResponse. If you need to declare
  *   additional mime-types, you can do so using CakeResponse::type() in your controllers beforeFilter()
  *   method.

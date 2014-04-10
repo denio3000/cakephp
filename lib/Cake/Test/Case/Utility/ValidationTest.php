@@ -1655,6 +1655,25 @@ class ValidationTest extends CakeTestCase {
 	}
 
 /**
+ * Test localized floats with decimal.
+ *
+ * @return void
+ */
+	public function testDecimalLocaleSet() {
+		$this->skipIf(DS === '\\', 'The locale is not supported in Windows and affects other tests.');
+		$restore = setlocale(LC_NUMERIC, 0);
+		$this->skipIf(setlocale(LC_NUMERIC, 'de_DE') === false, "The German locale isn't available.");
+
+		$this->assertTrue(Validation::decimal(1.54), '1.54 should be considered a valid float');
+		$this->assertTrue(Validation::decimal('1.54'), '"1.54" should be considered a valid float');
+
+		$this->assertTrue(Validation::decimal(12345.67), '12345.67 should be considered a valid float');
+		$this->assertTrue(Validation::decimal('12,345.67'), '"12,345.67" should be considered a valid float');
+
+		setlocale(LC_NUMERIC, $restore);
+	}
+
+/**
  * testEmail method
  *
  * @return void
@@ -1881,9 +1900,9 @@ class ValidationTest extends CakeTestCase {
 		$this->assertTrue(Validation::url('https://my.domain.com/gizmo/app?class=MySip;proc=start'));
 		$this->assertTrue(Validation::url('www.domain.tld'));
 		$this->assertTrue(Validation::url('http://123456789112345678921234567893123456789412345678951234567896123.com'));
-		$this->assertTrue(Validation::url('http://www.domain.com/blogs/edit.ctp?blog=6&tempskin=_rss2'));
+		$this->assertTrue(Validation::url('http://www.domain.com/blogs/index.php?blog=6&tempskin=_rss2'));
 		$this->assertTrue(Validation::url('http://www.domain.com/blogs/parenth()eses.php'));
-		$this->assertTrue(Validation::url('http://www.domain.com/edit.ctp?get=params&amp;get2=params'));
+		$this->assertTrue(Validation::url('http://www.domain.com/index.php?get=params&amp;get2=params'));
 		$this->assertTrue(Validation::url('http://www.domain.com/ndex.php?get=params&amp;get2=params#anchor'));
 		$this->assertTrue(Validation::url('http://www.domain.com/real%20url%20encodeing'));
 		$this->assertTrue(Validation::url('http://en.wikipedia.org/wiki/Architectural_pattern_(computer_science)'));
@@ -2368,9 +2387,11 @@ class ValidationTest extends CakeTestCase {
 	public function testUploadError() {
 		$this->assertTrue(Validation::uploadError(0));
 		$this->assertTrue(Validation::uploadError(array('error' => 0)));
+		$this->assertTrue(Validation::uploadError(array('error' => '0')));
 
 		$this->assertFalse(Validation::uploadError(2));
 		$this->assertFalse(Validation::uploadError(array('error' => 2)));
+		$this->assertFalse(Validation::uploadError(array('error' => '2')));
 	}
 
 /**

@@ -42,3 +42,14 @@
  * the built-in default routes.
  */
 	require CAKE . 'Config' . DS . 'routes.php';
+
+/**
+ *  Load routes for user interface
+ *
+ *
+ *
+ * */
+
+    Router::connect('/dashboard', array('controller' => 'users', 'action' => 'index'));
+    Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
+    Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));

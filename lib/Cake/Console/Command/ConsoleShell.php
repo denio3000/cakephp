@@ -157,14 +157,14 @@ class ConsoleShell extends AppShell {
 			"where url is the path to your your action plus any query parameters,",
 			"minus the application's base path. For example:",
 			"",
-			"\tRoute /Posts/view.ctp/1",
+			"\tRoute /posts/view/1",
 			"",
 			"will return something like the following:",
 			"",
 			"\tarray(",
 			"\t  [...]",
-			"\t  'controller' => 'Posts',",
-			"\t  'action' => 'view.ctp',",
+			"\t  'controller' => 'posts',",
+			"\t  'action' => 'view',",
 			"\t  [...]",
 			"\t)",
 			"",
@@ -329,7 +329,7 @@ class ConsoleShell extends AppShell {
 		$command = str_replace($this->badCommandChars, "", $command);
 
 		// Do we have a valid model?
-		list($modelToCheck, $tmp) = explode('->', $command);
+		list($modelToCheck) = explode('->', $command);
 
 		if ($this->_isValidModel($modelToCheck)) {
 			$findCommand = "\$data = \$this->$command;";
@@ -390,7 +390,7 @@ class ConsoleShell extends AppShell {
 		// Validate the model we're trying to save here
 		$command = strip_tags($command);
 		$command = str_replace($this->badCommandChars, "", $command);
-		list($modelToSave, $tmp) = explode("->", $command);
+		list($modelToSave) = explode("->", $command);
 
 		if ($this->_isValidModel($modelToSave)) {
 			// Extract the array of data we are trying to build

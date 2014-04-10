@@ -537,7 +537,7 @@ class ShellTest extends CakeTestCase {
 		$path = $expected = DS . 'tmp' . DS . 'ab' . DS . 'cd' . DS;
 		$this->assertEquals($expected, $this->Shell->shortPath($path));
 
-		$path = $expected = DS . 'tmp' . DS . 'ab' . DS . 'edit.ctp';
+		$path = $expected = DS . 'tmp' . DS . 'ab' . DS . 'index.php';
 		$this->assertEquals($expected, $this->Shell->shortPath($path));
 
 		$path = DS . 'tmp' . DS . 'ab' . DS . DS . 'cd';
@@ -556,8 +556,8 @@ class ShellTest extends CakeTestCase {
 		$expected = DS . basename(APP) . DS;
 		$this->assertEquals($expected, $this->Shell->shortPath($path));
 
-		$path = APP . 'edit.ctp';
-		$expected = DS . basename(APP) . DS . 'edit.ctp';
+		$path = APP . 'index.php';
+		$expected = DS . basename(APP) . DS . 'index.php';
 		$this->assertEquals($expected, $this->Shell->shortPath($path));
 	}
 
@@ -840,6 +840,8 @@ TEXT;
 
 /**
  * Test file and console and logging
+ *
+ * @return void
  */
 	public function testFileAndConsoleLogging() {
 		// file logging
@@ -886,6 +888,8 @@ TEXT;
 
 /**
  * Test file and console and logging quiet output
+ *
+ * @return void
  */
 	public function testQuietLog() {
 		$output = $this->getMock('ConsoleOutput', array(), array(), '', false);

@@ -84,7 +84,7 @@ class PaginatorHelper extends AppHelper {
  *
  * The chosen custom helper must implement a `link()` method.
  *
- * @param View $View the view.ctp object the helper is attached to.
+ * @param View $View the view object the helper is attached to.
  * @param array $settings Array of settings.
  * @throws CakeException When the AjaxProvider helper does not implement a link method.
  */

@@ -64,6 +64,7 @@ class ScaffoldMockControllerWithFields extends Controller {
  * function beforeScaffold
  *
  * @param string method
+ * @return boolean true
  */
 	public function beforeScaffold($method) {
 		$this->set('scaffoldFields', array('title'));
@@ -82,7 +83,8 @@ class TestScaffoldMock extends Scaffold {
 /**
  * Overload _scaffold
  *
- * @param unknown_type $params
+ * @param CakeRequest $request
+ * @return void
  */
 	protected function _scaffold(CakeRequest $request) {
 		$this->_params = $request;
@@ -145,7 +147,7 @@ class ScaffoldTest extends CakeTestCase {
 
 /**
  * Test the correct Generation of Scaffold Params.
- * This ensures that the correct action and view.ctp will be generated
+ * This ensures that the correct action and view will be generated
  *
  * @return void
  */
@@ -215,7 +217,7 @@ class ScaffoldTest extends CakeTestCase {
 	}
 
 /**
- * test that Scaffold overrides the view.ctp property even if its set to 'Theme'
+ * test that Scaffold overrides the view property even if its set to 'Theme'
  *
  * @return void
  */

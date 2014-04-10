@@ -1,6 +1,6 @@
 <?php
 /**
- * Methods for displaying presentation data in the view.ctp.
+ * Methods for displaying presentation data in the view.
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -25,17 +25,17 @@ App::uses('CakeEventManager', 'Event');
 App::uses('CakeResponse', 'Network');
 
 /**
- * View, the V in the MVC triad. View interacts with Helpers and view.ctp variables passed
+ * View, the V in the MVC triad. View interacts with Helpers and view variables passed
  * in from the controller to render the results of the controller action. Often this is HTML,
  * but can also take the form of JSON, XML, PDF's or streaming files.
  *
- * CakePHP uses a two-step-view.ctp pattern. This means that the view.ctp content is rendered first,
- * and then inserted into the selected layout. This also means you can pass data from the view.ctp to the
+ * CakePHP uses a two-step-view pattern. This means that the view content is rendered first,
+ * and then inserted into the selected layout. This also means you can pass data from the view to the
  * layout using `$this->set()`
  *
  * Since 2.1, the base View class also includes support for themes by default. Theme views are regular
- * view.ctp files that can provide unique HTML and static assets. If theme views are not found for the
- * current view.ctp the default app view.ctp files will be used. You can set `$this->theme = 'mytheme'`
+ * view files that can provide unique HTML and static assets. If theme views are not found for the
+ * current view the default app view files will be used. You can set `$this->theme = 'mytheme'`
  * in your Controller to use the Themes.
  *
  * Example of theme path with `$this->theme = 'SuperHot';` Would be `app/View/Themed/SuperHot/Posts`
@@ -106,14 +106,14 @@ class View extends Object {
 	public $viewPath = null;
 
 /**
- * Variables for the view.ctp
+ * Variables for the view
  *
  * @var array
  */
 	public $viewVars = array();
 
 /**
- * Name of view.ctp to use with this View.
+ * Name of view to use with this View.
  *
  * @var string
  */
@@ -149,7 +149,7 @@ class View extends Object {
 	public $ext = '.ctp';
 
 /**
- * Sub-directory for this view.ctp file. This is often used for extension based routing.
+ * Sub-directory for this view file. This is often used for extension based routing.
  * Eg. With an `xml` extension, $subDir would be `xml/`
  *
  * @var string
@@ -179,7 +179,7 @@ class View extends Object {
 	public $validationErrors = array();
 
 /**
- * True when the view.ctp has been rendered.
+ * True when the view has been rendered.
  *
  * @var boolean
  */
@@ -259,7 +259,7 @@ class View extends Object {
 	protected $_parents = array();
 
 /**
- * The currently rendering view.ctp file. Used for resolving parent files.
+ * The currently rendering view file. Used for resolving parent files.
  *
  * @var string
  */
@@ -283,7 +283,7 @@ class View extends Object {
 /**
  * Instance of the CakeEventManager this View object is using
  * to dispatch inner events. Usually the manager is shared with
- * the controller, so it it possible to register view.ctp events in
+ * the controller, so it it possible to register view events in
  * the controller layer.
  *
  * @var CakeEventManager
@@ -298,17 +298,23 @@ class View extends Object {
 	protected $_eventManagerConfigured = false;
 
 /**
- * Constant for view.ctp file type 'view.ctp'
+ * Constant for view file type 'view'
+ *
+ * @var string
  */
-	const TYPE_VIEW = 'view.ctp';
+	const TYPE_VIEW = 'view';
 
 /**
- * Constant for view.ctp file type 'element'
+ * Constant for view file type 'element'
+ *
+ * @var string
  */
 	const TYPE_ELEMENT = 'element';
 
 /**
- * Constant for view.ctp file type 'layout'
+ * Constant for view file type 'layout'
+ *
+ * @var string
  */
 	const TYPE_LAYOUT = 'layout';
 
@@ -368,8 +374,8 @@ class View extends Object {
  *
  * @param string $name Name of template file in the/app/View/Elements/ folder,
  *   or `MyPlugin.template` to use the template element from MyPlugin. If the element
- *   is not found in the plugin, the normal view.ctp path cascade will be searched.
- * @param array $data Array of data to be made available to the rendered view.ctp (i.e. the Element)
+ *   is not found in the plugin, the normal view path cascade will be searched.
+ * @param array $data Array of data to be made available to the rendered view (i.e. the Element)
  * @param array $options Array of options. Possible keys are:
  * - `cache` - Can either be `true`, to enable caching using the config in View::$elementCache. Or an array
  *   If an array, the following keys can be used:
@@ -419,7 +425,7 @@ class View extends Object {
  *
  * @param string $name Name of template file in the /app/View/Elements/ folder,
  *   or `MyPlugin.template` to check the template element from MyPlugin. If the element
- *   is not found in the plugin, the normal view.ctp path cascade will be searched.
+ *   is not found in the plugin, the normal view path cascade will be searched.
  * @return boolean Success
  */
 	public function elementExists($name) {
@@ -427,9 +433,9 @@ class View extends Object {
 	}
 
 /**
- * Renders view.ctp for given view.ctp file and layout.
+ * Renders view for given view file and layout.
  *
- * Render triggers helper callbacks, which are fired before and after the view.ctp are rendered,
+ * Render triggers helper callbacks, which are fired before and after the view are rendered,
  * as well as before and after the layout. The helper callbacks are called:
  *
  * - `beforeRender`
@@ -437,20 +443,20 @@ class View extends Object {
  * - `beforeLayout`
  * - `afterLayout`
  *
- * If View::$autoRender is false and no `$layout` is provided, the view.ctp will be returned bare.
+ * If View::$autoRender is false and no `$layout` is provided, the view will be returned bare.
  *
- * View and layout names can point to plugin views/layouts. Using the `Plugin.view.ctp` syntax
- * a plugin view.ctp/layout can be used instead of the app ones. If the chosen plugin is not found
- * the view.ctp will be located along the regular view.ctp path cascade.
+ * View and layout names can point to plugin views/layouts. Using the `Plugin.view` syntax
+ * a plugin view/layout can be used instead of the app ones. If the chosen plugin is not found
+ * the view will be located along the regular view path cascade.
  *
- * @param string $view Name of view.ctp file to use
+ * @param string $view Name of view file to use
  * @param string $layout Layout to use.
- * @return string Rendered Element
- * @throws CakeException If there is an error in the view.ctp.
+ * @return string|null Rendered content or null if content already rendered and returned earlier.
+ * @throws CakeException If there is an error in the view.
  */
 	public function render($view = null, $layout = null) {
 		if ($this->hasRendered) {
-			return true;
+			return;
 		}
 		$this->Blocks->set('content', '');
 
@@ -476,7 +482,7 @@ class View extends Object {
  * Several variables are created for use in layout.
  *
  * - `title_for_layout` - A backwards compatible place holder, you should set this value if you want more control.
- * - `content_for_layout` - contains rendered view.ctp file
+ * - `content_for_layout` - contains rendered view file
  * - `scripts_for_layout` - Contains content added with addScript() as well as any content in
  *   the 'meta', 'css', and 'script' blocks. They are appended in that order.
  *
@@ -489,10 +495,10 @@ class View extends Object {
  * - `$content_for_layout` is deprecated and will be removed in CakePHP 3.0.
  *   Use the `content` block instead.
  *
- * @param string $content Content to render in a view.ctp, wrapped by the surrounding layout.
+ * @param string $content Content to render in a view, wrapped by the surrounding layout.
  * @param string $layout Layout name
  * @return mixed Rendered output, or false on error
- * @throws CakeException if there is an error in the view.ctp.
+ * @throws CakeException if there is an error in the view.
  */
 	public function renderLayout($content, $layout = null) {
 		$layoutFileName = $this->_getLayoutFileName($layout);
@@ -527,8 +533,8 @@ class View extends Object {
 	}
 
 /**
- * Render cached view.ctp. Works in concert with CacheHelper and Dispatcher to
- * render cached view.ctp files.
+ * Render cached view. Works in concert with CacheHelper and Dispatcher to
+ * render cached view files.
  *
  * @param string $filename the cache file to include
  * @param string $timeStart the page render start time
@@ -560,7 +566,7 @@ class View extends Object {
 /**
  * Returns a list of variables available in the current View context
  *
- * @return array Array of the set view.ctp variable names.
+ * @return array Array of the set view variable names.
  */
 	public function getVars() {
 		return array_keys($this->viewVars);
@@ -569,7 +575,7 @@ class View extends Object {
 /**
  * Returns the contents of the given View variable(s)
  *
- * @param string $var The view.ctp var you want the contents of.
+ * @param string $var The view var you want the contents of.
  * @return mixed The content of the named var if its set, otherwise null.
  * @deprecated Will be removed in 3.0. Use View::get() instead.
  */
@@ -579,9 +585,9 @@ class View extends Object {
 
 /**
  * Returns the contents of the given View variable or a block.
- * Blocks are checked before view.ctp variables.
+ * Blocks are checked before view variables.
  *
- * @param string $var The view.ctp var you want the contents of.
+ * @param string $var The view var you want the contents of.
  * @return mixed The content of the named var if its set, otherwise null.
  */
 	public function get($var) {
@@ -686,12 +692,12 @@ class View extends Object {
 	}
 
 /**
- * Provides view.ctp or element extension/inheritance. Views can extends a
- * parent view.ctp and populate blocks in the parent template.
+ * Provides view or element extension/inheritance. Views can extends a
+ * parent view and populate blocks in the parent template.
  *
- * @param string $name The view.ctp or element to 'extend' the current one with.
+ * @param string $name The view or element to 'extend' the current one with.
  * @return void
- * @throws LogicException when you extend a view.ctp with itself or make extend loops.
+ * @throws LogicException when you extend a view with itself or make extend loops.
  * @throws LogicException when you extend an element which doesn't exist
  */
 	public function extend($name) {
@@ -869,11 +875,11 @@ class View extends Object {
 	}
 
 /**
- * Renders and returns output for given view.ctp filename with its
+ * Renders and returns output for given view filename with its
  * array of data. Handles parent/extended views.
  *
- * @param string $viewFile Filename of the view.ctp
- * @param array $data Data to include in rendered view.ctp. If empty the current View::$viewVars will be used.
+ * @param string $viewFile Filename of the view
+ * @param array $data Data to include in rendered view. If empty the current View::$viewVars will be used.
  * @return string Rendered output
  * @throws CakeException when a block is left open.
  */
@@ -914,10 +920,10 @@ class View extends Object {
 	}
 
 /**
- * Sandbox method to evaluate a template / view.ctp script in.
+ * Sandbox method to evaluate a template / view script in.
  *
- * @param string $viewFn Filename of the view.ctp
- * @param array $dataForView Data to include in rendered view.ctp.
+ * @param string $viewFn Filename of the view
+ * @param array $dataForView Data to include in rendered view.
  *    If empty the current View::$viewVars will be used.
  * @return string Rendered output
  */
@@ -951,7 +957,7 @@ class View extends Object {
  *
  * @param string $name Controller action to find template filename for
  * @return string Template filename
- * @throws MissingViewException when a view.ctp file could not be found.
+ * @throws MissingViewException when a view file could not be found.
  */
 	protected function _getViewFileName($name = null) {
 		$subDir = null;
@@ -1057,9 +1063,9 @@ class View extends Object {
 	}
 
 /**
- * Get the extensions that view.ctp files can use.
+ * Get the extensions that view files can use.
  *
- * @return array Array of extensions view.ctp files use.
+ * @return array Array of extensions view files use.
  */
 	protected function _getExtensions() {
 		$exts = array($this->ext);
@@ -1091,10 +1097,10 @@ class View extends Object {
 	}
 
 /**
- * Return all possible paths to find view.ctp files in order
+ * Return all possible paths to find view files in order
  *
- * @param string $plugin Optional plugin name to scan for view.ctp files.
- * @param boolean $cached Set to false to force a refresh of view.ctp paths. Default true.
+ * @param string $plugin Optional plugin name to scan for view files.
+ * @param boolean $cached Set to false to force a refresh of view paths. Default true.
  * @return array paths
  */
 	protected function _paths($plugin = null, $cached = true) {

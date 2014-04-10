@@ -1,6 +1,7 @@
 
 
 /* Slider homepage */
+
 .slide{
     background:url('../img/slide1.jpg') no-repeat center center;
     height:400px;
@@ -19,6 +20,8 @@
     border:1px solid #999;
 }
 
+/* Footer */
+
 #footer,
 footer{
     color:#777;
@@ -27,7 +30,9 @@ footer{
 #input_slide_homepage{
 
 }
+
 /* Posts */
+
 #sending{
     display:none;
     color:#00aa00;
@@ -50,6 +55,9 @@ footer{
 [class^='users']{
     border-top:3px solid #0076FF;
 }
+
+/* HEADER */
+
 .navbar{
     margin-bottom:0;
 }
@@ -66,4 +74,27 @@ footer{
     content:'✓';
     padding:5px 20px;
     text-align: center;
+}
+.navbar a.userArea{
+    background-color:#363636;
+    color:#fff;
+    border:1px solid #555;
+    padding:3px 15px;
+    margin:10px 0;
+    border-radius: 4px;
+}
+.messageBox{
+    margin-bottom:5px;
+    padding:5px 0;
+    border-bottom:1px solid #eaeaea;
+}
+.messageBox:last-child{
+    border-bottom:0 none;
+}
+.removeMessage{
+    color: #aa4657;
+}
+.smallInfo{
+    font-size:12px;
+    color:#777;
 }

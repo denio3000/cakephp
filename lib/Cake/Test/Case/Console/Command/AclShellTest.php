@@ -66,7 +66,7 @@ class AclShellTest extends CakeTestCase {
  * @return void
  */
 	public function testViewWithModelForeignKeyOutput() {
-		$this->Task->command = 'view.ctp';
+		$this->Task->command = 'view';
 		$this->Task->startup();
 		$data = array(
 			'parent_id' => null,
@@ -91,7 +91,7 @@ class AclShellTest extends CakeTestCase {
 	}
 
 /**
- * test view.ctp with an argument
+ * test view with an argument
  *
  * @return void
  */

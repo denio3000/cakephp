@@ -105,10 +105,10 @@ class ThemeViewTest extends CakeTestCase {
  */
 	public function setUp() {
 		parent::setUp();
-		$request = new CakeRequest('Posts/index');
+		$request = new CakeRequest('posts/index');
 		$this->Controller = new Controller($request);
 		$this->PostsController = new ThemePosts2Controller($request);
-		$this->PostsController->viewPath = 'Posts';
+		$this->PostsController->viewPath = 'posts';
 		$this->PostsController->index();
 		$this->ThemeView = new ThemeView($this->PostsController);
 		App::build(array(
@@ -145,7 +145,7 @@ class ThemeViewTest extends CakeTestCase {
 		$this->Controller->theme = 'TestTheme';
 
 		$ThemeView = new TestTheme2View($this->Controller);
-		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Themed' . DS . 'TestTheme' . DS . 'Plugin' . DS . 'TestPlugin' . DS . 'Tests' . DS . 'edit.ctp';
+		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Themed' . DS . 'TestTheme' . DS . 'Plugin' . DS . 'TestPlugin' . DS . 'Tests' . DS . 'index.ctp';
 		$result = $ThemeView->getViewFileName('index');
 		$this->assertEquals($expected, $result);
 
@@ -172,11 +172,11 @@ class ThemeViewTest extends CakeTestCase {
 
 		$ThemeView = new TestTheme2View($this->Controller);
 		$ThemeView->theme = 'TestTheme';
-		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Pages' . DS . 'edit.ctp';
+		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Pages' . DS . 'home.ctp';
 		$result = $ThemeView->getViewFileName('home');
 		$this->assertEquals($expected, $result);
 
-		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Themed' . DS . 'TestTheme' . DS . 'Posts' . DS . 'edit.ctp';
+		$expected = CAKE . 'Test' . DS . 'test_app' . DS . 'View' . DS . 'Themed' . DS . 'TestTheme' . DS . 'Posts' . DS . 'index.ctp';
 		$result = $ThemeView->getViewFileName('/Posts/index');
 		$this->assertEquals($expected, $result);
 
@@ -227,7 +227,7 @@ class ThemeViewTest extends CakeTestCase {
 	public function testMissingLayout() {
 		$this->Controller->plugin = null;
 		$this->Controller->name = 'Posts';
-		$this->Controller->viewPath = 'Posts';
+		$this->Controller->viewPath = 'posts';
 		$this->Controller->layout = 'whatever';
 		$this->Controller->theme = 'my_theme';
 
@@ -247,7 +247,7 @@ class ThemeViewTest extends CakeTestCase {
 	public function testMemoryLeakInPaths() {
 		$this->Controller->plugin = null;
 		$this->Controller->name = 'Posts';
-		$this->Controller->viewPath = 'Posts';
+		$this->Controller->viewPath = 'posts';
 		$this->Controller->layout = 'whatever';
 		$this->Controller->theme = 'TestTheme';
 

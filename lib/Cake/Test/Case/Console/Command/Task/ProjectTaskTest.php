@@ -140,7 +140,7 @@ class ProjectTaskTest extends CakeTestCase {
 		$this->Task->execute();
 
 		$this->assertTrue(is_dir($this->Task->args[0]), 'No project dir');
-		$File = new File($path . DS . 'webroot' . DS . 'edit.ctp');
+		$File = new File($path . DS . 'webroot' . DS . 'index.php');
 		$contents = $File->read();
 		$this->assertRegExp('/define\(\'CAKE_CORE_INCLUDE_PATH\', .*?DS/', $contents);
 		$File = new File($path . DS . 'webroot' . DS . 'test.php');
@@ -166,7 +166,7 @@ class ProjectTaskTest extends CakeTestCase {
 		$this->Task->execute();
 
 		$this->assertTrue(is_dir($this->Task->args[0]), 'No project dir');
-		$contents = file_get_contents($path . DS . 'webroot' . DS . 'edit.ctp');
+		$contents = file_get_contents($path . DS . 'webroot' . DS . 'index.php');
 		$this->assertRegExp('#//define\(\'CAKE_CORE_INCLUDE_PATH#', $contents);
 
 		$contents = file_get_contents($path . DS . 'webroot' . DS . 'test.php');
@@ -267,7 +267,7 @@ class ProjectTaskTest extends CakeTestCase {
 	}
 
 /**
- * Test that edit.ctp is generated correctly.
+ * Test that index.php is generated correctly.
  *
  * @return void
  */
@@ -277,7 +277,7 @@ class ProjectTaskTest extends CakeTestCase {
 		$path = $this->Task->path . 'bake_test_app' . DS;
 		$this->Task->corePath($path);
 
-		$File = new File($path . 'webroot' . DS . 'edit.ctp');
+		$File = new File($path . 'webroot' . DS . 'index.php');
 		$contents = $File->read();
 		$this->assertNotRegExp('/define\(\'CAKE_CORE_INCLUDE_PATH\', ROOT/', $contents);
 		$File = new File($path . 'webroot' . DS . 'test.php');

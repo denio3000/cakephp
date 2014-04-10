@@ -206,7 +206,7 @@ class XmlTest extends CakeTestCase {
 /**
  * test build with a single empty tag
  *
- * return void
+ * @return void
  */
 	public function testBuildEmptyTag() {
 		try {
@@ -553,6 +553,7 @@ XML;
  * testFromArrayFail method
  *
  * @dataProvider invalidArrayDataProvider
+ * @return void
  */
 	public function testFromArrayFail($value) {
 		try {
@@ -665,7 +666,7 @@ XML;
 			'tags' => array(
 				'tag' => array(
 					'id' => '1',
-					'Posts' => array(
+					'posts' => array(
 						array('id' => '1'),
 						array('id' => '2')
 					)
@@ -681,7 +682,7 @@ XML;
 			'tags' => array(
 				'tag' => array(
 					'@id' => '1',
-					'Posts' => array(
+					'posts' => array(
 						array('@id' => '1'),
 						array('@id' => '2')
 					)
@@ -777,10 +778,10 @@ XML;
 
 		$expected = array(
 			'title' => 'Alertpay automated sales via IPN',
-			'link' => 'http://bakery.cakephp.org/articles/view.ctp/alertpay-automated-sales-via-ipn',
+			'link' => 'http://bakery.cakephp.org/articles/view/alertpay-automated-sales-via-ipn',
 			'description' => 'I\'m going to show you how I implemented a payment module via the Alertpay payment processor.',
 			'pubDate' => 'Tue, 31 Aug 2010 01:42:00 -0500',
-			'guid' => 'http://bakery.cakephp.org/articles/view.ctp/alertpay-automated-sales-via-ipn'
+			'guid' => 'http://bakery.cakephp.org/articles/view/alertpay-automated-sales-via-ipn'
 		);
 		$this->assertSame($rssAsArray['rss']['channel']['item'][1], $expected);
 
@@ -801,11 +802,11 @@ XML;
 					'item' => array(
 						array(
 							'title' => 'CakePHP 1.3.4 released',
-							'link' => 'http://bakery.cakephp.org/articles/view.ctp/cakephp-1-3-4-released'
+							'link' => 'http://bakery.cakephp.org/articles/view/cakephp-1-3-4-released'
 						),
 						array(
 							'title' => 'Wizard Component 1.2 Tutorial',
-							'link' => 'http://bakery.cakephp.org/articles/view.ctp/wizard-component-1-2-tutorial'
+							'link' => 'http://bakery.cakephp.org/articles/view/wizard-component-1-2-tutorial'
 						)
 					)
 				)
@@ -823,11 +824,11 @@ XML;
 	<pubDate>Sun, 12 Sep 2010 04:18:26 -0500</pubDate>
 	<item>
 		<title>CakePHP 1.3.4 released</title>
-		<link>http://bakery.cakephp.org/articles/view.ctp/cakephp-1-3-4-released</link>
+		<link>http://bakery.cakephp.org/articles/view/cakephp-1-3-4-released</link>
 	</item>
 	<item>
 		<title>Wizard Component 1.2 Tutorial</title>
-		<link>http://bakery.cakephp.org/articles/view.ctp/wizard-component-1-2-tutorial</link>
+		<link>http://bakery.cakephp.org/articles/view/wizard-component-1-2-tutorial</link>
 	</item>
 </channel>
 </rss>
@@ -1123,6 +1124,7 @@ XML;
  *
  * @dataProvider invalidToArrayDataProvider
  * @expectedException XmlException
+ * @return void
  */
 	public function testToArrayFail($value) {
 		Xml::toArray($value);

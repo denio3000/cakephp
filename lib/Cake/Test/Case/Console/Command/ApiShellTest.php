@@ -76,7 +76,7 @@ class ApiShellTest extends CakeTestCase {
 			'18. postConditions($data = array (), $op = NULL, $bool = \'AND\', $exclusive = false)',
 			'19. redirect($url, $status = NULL, $exit = true)',
 			'20. referer($default = NULL, $local = false)',
-			'21. render($view.ctp = NULL, $layout = NULL)',
+			'21. render($view = NULL, $layout = NULL)',
 			'22. scaffoldError($method)',
 			'23. set($one, $two = NULL)',
 			'24. setAction($action)',

@@ -119,7 +119,7 @@ class Dispatcher implements CakeEventListener {
 
 /**
  * Dispatches and invokes given Request, handing over control to the involved controller. If the controller is set
- * to autoRender, via Controller::$autoRender, then Dispatcher will render the view.ctp.
+ * to autoRender, via Controller::$autoRender, then Dispatcher will render the view.
  *
  * Actions in CakePHP can be any public method on a controller, that is not declared in Controller. If you
  * want controller methods to be public and in-accessible by URL, then prefix them with a `_`.

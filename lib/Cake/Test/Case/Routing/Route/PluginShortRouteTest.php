@@ -62,7 +62,7 @@ class PluginShortRouteTest extends CakeTestCase {
 	public function testMatch() {
 		$route = new PluginShortRoute('/:plugin', array('action' => 'index'), array('plugin' => 'foo|bar'));
 
-		$result = $route->match(array('plugin' => 'foo', 'controller' => 'Posts', 'action' => 'index'));
+		$result = $route->match(array('plugin' => 'foo', 'controller' => 'posts', 'action' => 'index'));
 		$this->assertFalse($result, 'plugin controller mismatch was converted. %s');
 
 		$result = $route->match(array('plugin' => 'foo', 'controller' => 'foo', 'action' => 'index'));

@@ -1,6 +1,6 @@
 <?php
 /**
- * CacheHelper helps create full page view.ctp caching.
+ * CacheHelper helps create full page view caching.
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -19,7 +19,7 @@
 App::uses('AppHelper', 'View/Helper');
 
 /**
- * CacheHelper helps create full page view.ctp caching.
+ * CacheHelper helps create full page view caching.
  *
  * When using CacheHelper you don't call any of its methods, they are all automatically
  * called by View, and use the $cacheAction settings set in the controller.
@@ -62,7 +62,7 @@ class CacheHelper extends AppHelper {
 	}
 
 /**
- * Parses the view.ctp file and stores content for cache file building.
+ * Parses the view file and stores content for cache file building.
  *
  * @param string $viewFile
  * @param string $output The output for the file.
@@ -103,11 +103,11 @@ class CacheHelper extends AppHelper {
 	}
 
 /**
- * Main method used to cache a view.ctp
+ * Main method used to cache a view
  *
  * @param string $file File to cache
  * @param string $out output to cache
- * @return string view.ctp output
+ * @return string view output
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/cache.html
  */
 	public function cache($file, $out) {
@@ -155,7 +155,7 @@ class CacheHelper extends AppHelper {
 			} catch (Exception $e) {
 				$message = __d(
 					'cake_dev',
-					'Unable to write view.ctp cache file: "%s" for "%s"',
+					'Unable to write view cache file: "%s" for "%s"',
 					$e->getMessage(),
 					$this->request->here
 				);
@@ -207,7 +207,7 @@ class CacheHelper extends AppHelper {
 	}
 
 /**
- * Munges the output from a view.ctp with cache tags, and numbers the sections.
+ * Munges the output from a view with cache tags, and numbers the sections.
  * This helps solve issues with empty/duplicate content.
  *
  * @return string The content with cake:nocache tags replaced.
@@ -264,10 +264,10 @@ class CacheHelper extends AppHelper {
 /**
  * Write a cached version of the file
  *
- * @param string $content view.ctp content to write to a cache file.
+ * @param string $content view content to write to a cache file.
  * @param string $timestamp Duration to set for cache file.
  * @param boolean $useCallbacks
- * @return boolean success of caching view.ctp.
+ * @return boolean success of caching view.
  */
 	protected function _writeFile($content, $timestamp, $useCallbacks = false) {
 		$now = time();

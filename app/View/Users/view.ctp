@@ -32,3 +32,7 @@
     </dd>
   </dl>
 </div>
+<div class="clearfix"></div>
+<hr/>
+<h3>Posts by <strong><?php echo $user['User']['name']; ?></strong></h3>
+<?php  echo $this->element('posts/list', array("posts" => $posts)); ?>

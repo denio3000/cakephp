@@ -227,7 +227,7 @@ class BakeShell extends AppShell {
 		))->addSubcommand('model', array(
 			'help' => __d('cake_console', 'Bake a model.'),
 			'parser' => $this->Model->getOptionParser()
-		))->addSubcommand('view.ctp', array(
+		))->addSubcommand('view', array(
 			'help' => __d('cake_console', 'Bake views for controllers.'),
 			'parser' => $this->View->getOptionParser()
 		))->addSubcommand('controller', array(

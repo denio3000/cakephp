@@ -20,7 +20,7 @@ App::uses('View', 'View');
 App::uses('CakeRequest', 'Network');
 
 /**
- * Media View provides a custom view.ctp implementation for sending files to visitors. Its great
+ * Media View provides a custom view implementation for sending files to visitors. Its great
  * for making the response of a controller action be a file that is saved somewhere on the filesystem.
  *
  * An example use comes from the CakePHP internals. MediaView is used to serve plugin and theme assets,
@@ -62,7 +62,7 @@ class MediaView extends View {
  *
  * @param string $view Not used
  * @param string $layout Not used
- * @return boolean
+ * @return void
  */
 	public function render($view = null, $layout = null) {
 		$name = $download = $id = $modified = $path = $cache = $mimeType = $compress = null;
@@ -94,7 +94,6 @@ class MediaView extends View {
 			$this->response->compress();
 		}
 		$this->response->send();
-		return true;
 	}
 
 }

@@ -55,7 +55,7 @@ class SchemaShellTestSchema extends CakeSchema {
 	);
 
 /**
- * Posts property
+ * posts property
  *
  * @var array
  */
@@ -177,7 +177,7 @@ class SchemaShellTest extends CakeTestCase {
 	}
 
 /**
- * test that view.ctp() can find plugin schema files.
+ * test that view() can find plugin schema files.
  *
  * @return void
  */
@@ -354,7 +354,7 @@ class SchemaShellTest extends CakeTestCase {
 		$contents = $this->file->read();
 
 		$this->assertRegExp('/class TestPluginSchema/', $contents);
-		$this->assertRegExp('/public \$Posts/', $contents);
+		$this->assertRegExp('/public \$posts/', $contents);
 		$this->assertRegExp('/public \$auth_users/', $contents);
 		$this->assertRegExp('/public \$authors/', $contents);
 		$this->assertRegExp('/public \$test_plugin_comments/', $contents);
@@ -393,7 +393,7 @@ class SchemaShellTest extends CakeTestCase {
 		$this->assertRegExp('/public \$test_plugin_comments/', $contents);
 		$this->assertNotRegExp('/public \$authors/', $contents);
 		$this->assertNotRegExp('/public \$auth_users/', $contents);
-		$this->assertNotRegExp('/public \$Posts/', $contents);
+		$this->assertNotRegExp('/public \$posts/', $contents);
 		CakePlugin::unload();
 	}
 
@@ -527,7 +527,7 @@ class SchemaShellTest extends CakeTestCase {
 		$this->Shell->expects($this->any())
 			->method('in')
 			->will($this->returnValue('y'));
-		$r = $this->Shell->expects($this->once())
+		$this->Shell->expects($this->once())
 			->method('_run')
 			->with($this->arrayHasKey('newone'), 'update', $this->isInstanceOf('CakeSchema'));
 

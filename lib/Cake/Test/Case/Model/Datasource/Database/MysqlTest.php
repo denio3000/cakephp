@@ -58,6 +58,7 @@ class MysqlTest extends CakeTestCase {
 /**
  * Sets up a Dbo class instance for testing
  *
+ * @return void
  */
 	public function setUp() {
 		parent::setUp();
@@ -73,6 +74,7 @@ class MysqlTest extends CakeTestCase {
 /**
  * Sets up a Dbo class instance for testing
  *
+ * @return void
  */
 	public function tearDown() {
 		parent::tearDown();
@@ -85,6 +87,7 @@ class MysqlTest extends CakeTestCase {
  * Test Dbo value method
  *
  * @group quoting
+ * @return void
  */
 	public function testQuoting() {
 		$result = $this->Dbo->fields($this->model);
@@ -2870,8 +2873,8 @@ class MysqlTest extends CakeTestCase {
 		$result = $this->Dbo->order(array("Page.name" => "='test' DESC"));
 		$this->assertRegExp("/^\s*ORDER BY\s+`Page`\.`name`\s*='test'\s+DESC\s*$/", $result);
 
-		$result = $this->Dbo->order("Page.name = 'view.ctp' DESC");
-		$this->assertRegExp("/^\s*ORDER BY\s+`Page`\.`name`\s*=\s*'view.ctp'\s+DESC\s*$/", $result);
+		$result = $this->Dbo->order("Page.name = 'view' DESC");
+		$this->assertRegExp("/^\s*ORDER BY\s+`Page`\.`name`\s*=\s*'view'\s+DESC\s*$/", $result);
 
 		$result = $this->Dbo->order("(Post.views)");
 		$this->assertRegExp("/^\s*ORDER BY\s+\(`Post`\.`views`\)\s+ASC\s*$/", $result);

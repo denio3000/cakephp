@@ -1,6 +1,6 @@
 <?php
 /**
- * The View Tasks handles creating and updating view.ctp files.
+ * The View Tasks handles creating and updating view files.
  *
  * CakePHP(tm) : Rapid Development Framework (http://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (http://cakefoundation.org)
@@ -20,7 +20,7 @@ App::uses('Controller', 'Controller');
 App::uses('BakeTask', 'Console/Command/Task');
 
 /**
- * Task class for creating and updating view.ctp files.
+ * Task class for creating and updating view files.
  *
  * @package       Cake.Console.Command.Task
  */
@@ -59,7 +59,7 @@ class ViewTask extends BakeTask {
  *
  * @var array
  */
-	public $scaffoldActions = array('index', 'view.ctp', 'add', 'edit');
+	public $scaffoldActions = array('index', 'view', 'add', 'edit');
 
 /**
  * An array of action names that don't require templates. These
@@ -213,7 +213,7 @@ class ViewTask extends BakeTask {
 			$this->interactive = false;
 		}
 
-		$prompt = __d('cake_console', "Would you like to create some CRUD views\n(index, add, view.ctp, edit) for this controller?\nNOTE: Before doing so, you'll need to create your controller\nand model classes (including associated models).");
+		$prompt = __d('cake_console', "Would you like to create some CRUD views\n(index, add, view, edit) for this controller?\nNOTE: Before doing so, you'll need to create your controller\nand model classes (including associated models).");
 		$wannaDoScaffold = $this->in($prompt, array('y', 'n'), 'y');
 
 		$wannaDoAdmin = $this->in(__d('cake_console', "Would you like to create the views for admin routing?"), array('y', 'n'), 'n');
@@ -248,7 +248,7 @@ class ViewTask extends BakeTask {
  *	'singularHumanName', 'pluralHumanName', 'fields', 'foreignKeys',
  *	'belongsTo', 'hasOne', 'hasMany', 'hasAndBelongsToMany'
  *
- * @return array Returns an variables to be made available to a view.ctp template
+ * @return array Returns an variables to be made available to a view template
  */
 	protected function _loadController() {
 		if (!$this->controllerName) {
@@ -264,7 +264,7 @@ class ViewTask extends BakeTask {
 		App::uses($controllerClassName, $plugin . 'Controller');
 		if (!class_exists($controllerClassName)) {
 			$file = $controllerClassName . '.php';
-			$this->err(__d('cake_console', "The file '%s' could not be found.\nIn order to bake a view.ctp, you'll need to first create the controller.", $file));
+			$this->err(__d('cake_console', "The file '%s' could not be found.\nIn order to bake a view, you'll need to first create the controller.", $file));
 			return $this->_stop();
 		}
 		$controllerObj = new $controllerClassName();
@@ -295,7 +295,7 @@ class ViewTask extends BakeTask {
 	}
 
 /**
- * Bake a view.ctp file for each of the supplied actions
+ * Bake a view file for each of the supplied actions
  *
  * @param array $actions Array of actions to make files for.
  * @param array $vars
@@ -309,7 +309,7 @@ class ViewTask extends BakeTask {
 	}
 
 /**
- * handle creation of baking a custom action view.ctp file
+ * handle creation of baking a custom action view file
  *
  * @return void
  */
@@ -323,7 +323,7 @@ class ViewTask extends BakeTask {
 		}
 		$this->out();
 		$this->hr();
-		$this->out(__d('cake_console', 'The following view.ctp will be created:'));
+		$this->out(__d('cake_console', 'The following view will be created:'));
 		$this->hr();
 		$this->out(__d('cake_console', 'Controller Name: %s', $this->controllerName));
 		$this->out(__d('cake_console', 'Action Name:     %s', $action));
@@ -338,7 +338,7 @@ class ViewTask extends BakeTask {
 	}
 
 /**
- * Assembles and writes bakes the view.ctp file.
+ * Assembles and writes bakes the view file.
  *
  * @param string $action Action to bake
  * @param string $content Content to write
@@ -351,7 +351,7 @@ class ViewTask extends BakeTask {
 		if (empty($content)) {
 			return false;
 		}
-		$this->out("\n" . __d('cake_console', 'Baking `%s` view.ctp file...', $action), 1, Shell::QUIET);
+		$this->out("\n" . __d('cake_console', 'Baking `%s` view file...', $action), 1, Shell::QUIET);
 		$path = $this->getPath();
 		$filename = $path . $this->controllerName . DS . Inflector::underscore($action) . '.ctp';
 		return $this->createFile($filename, $content);
@@ -423,12 +423,12 @@ class ViewTask extends BakeTask {
 		)->addArgument('controller', array(
 			'help' => __d('cake_console', 'Name of the controller views to bake. Can be Plugin.name as a shortcut for plugin baking.')
 		))->addArgument('action', array(
-			'help' => __d('cake_console', "Will bake a single action's file. core templates are (index, add, edit, view.ctp)")
+			'help' => __d('cake_console', "Will bake a single action's file. core templates are (index, add, edit, view)")
 		))->addArgument('alias', array(
 			'help' => __d('cake_console', 'Will bake the template in <action> but create the filename after <alias>.')
 		))->addOption('plugin', array(
 			'short' => 'p',
-			'help' => __d('cake_console', 'Plugin to bake the view.ctp into.')
+			'help' => __d('cake_console', 'Plugin to bake the view into.')
 		))->addOption('admin', array(
 			'help' => __d('cake_console', 'Set to only bake views for a prefix in Routing.prefixes'),
 			'boolean' => true

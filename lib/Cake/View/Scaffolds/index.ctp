@@ -34,7 +34,7 @@ foreach (${$pluralVar} as ${$singularVar}):
 				foreach ($associations['belongsTo'] as $_alias => $_details) {
 					if ($_field === $_details['foreignKey']) {
 						$isKey = true;
-						echo '<td>' . $this->Html->link(${$singularVar}[$_alias][$_details['displayField']], array('controller' => $_details['controller'], 'action' => 'view.ctp', ${$singularVar}[$_alias][$_details['primaryKey']])) . '</td>';
+						echo '<td>' . $this->Html->link(${$singularVar}[$_alias][$_details['displayField']], array('controller' => $_details['controller'], 'action' => 'view', ${$singularVar}[$_alias][$_details['primaryKey']])) . '</td>';
 						break;
 					}
 				}
@@ -45,7 +45,7 @@ foreach (${$pluralVar} as ${$singularVar}):
 		}
 
 		echo '<td class="actions">';
-		echo $this->Html->link(__d('cake', 'View'), array('action' => 'view.ctp', ${$singularVar}[$modelClass][$primaryKey]));
+		echo $this->Html->link(__d('cake', 'View'), array('action' => 'view', ${$singularVar}[$modelClass][$primaryKey]));
 		echo ' ' . $this->Html->link(__d('cake', 'Edit'), array('action' => 'edit', ${$singularVar}[$modelClass][$primaryKey]));
 		echo ' ' . $this->Form->postLink(
 			__d('cake', 'Delete'),

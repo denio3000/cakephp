@@ -135,7 +135,6 @@ class CakeSession {
  */
 	public static function init($base = null) {
 		self::$time = time();
-		$checkAgent = Configure::read('Session.checkAgent');
 
 		if (env('HTTP_USER_AGENT')) {
 			self::$_userAgent = md5(env('HTTP_USER_AGENT') . Configure::read('Security.salt'));
@@ -162,8 +161,8 @@ class CakeSession {
 			self::$path = '/';
 			return;
 		}
-		if (strpos($base, 'edit.ctp') !== false) {
-			$base = str_replace('edit.ctp', '', $base);
+		if (strpos($base, 'index.php') !== false) {
+			$base = str_replace('index.php', '', $base);
 		}
 		if (strpos($base, '?') !== false) {
 			$base = str_replace('?', '', $base);

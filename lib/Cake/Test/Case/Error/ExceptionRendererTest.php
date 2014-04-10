@@ -270,6 +270,8 @@ class ExceptionRendererTest extends CakeTestCase {
 
 /**
  * test that helpers in custom CakeErrorController are not lost
+ *
+ * @return void
  */
 	public function testCakeErrorHelpersNotLost() {
 		$testApp = CAKE . 'Test' . DS . 'test_app' . DS;
@@ -390,7 +392,7 @@ class ExceptionRendererTest extends CakeTestCase {
 	public function testError400() {
 		Router::reload();
 
-		$request = new CakeRequest('Posts/view.ctp/1000', false);
+		$request = new CakeRequest('posts/view/1000', false);
 		Router::setRequestInfo($request);
 
 		$exception = new NotFoundException('Custom message');
@@ -403,7 +405,7 @@ class ExceptionRendererTest extends CakeTestCase {
 		$result = ob_get_clean();
 
 		$this->assertRegExp('/<h2>Custom message<\/h2>/', $result);
-		$this->assertRegExp("/<strong>'.*?\/Posts\/view.ctp\/1000'<\/strong>/", $result);
+		$this->assertRegExp("/<strong>'.*?\/posts\/view\/1000'<\/strong>/", $result);
 	}
 
 /**
@@ -549,9 +551,9 @@ class ExceptionRendererTest extends CakeTestCase {
 				500
 			),
 			array(
-				new MissingViewException(array('file' => '/Posts/about.ctp')),
+				new MissingViewException(array('file' => '/posts/about.ctp')),
 				array(
-					"/Posts\/about.ctp/"
+					"/posts\/about.ctp/"
 				),
 				500
 			),

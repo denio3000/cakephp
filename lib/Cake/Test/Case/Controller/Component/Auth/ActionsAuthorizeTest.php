@@ -68,10 +68,10 @@ class ActionsAuthorizeTest extends CakeTestCase {
 				'user' => 'mariano'
 			)
 		);
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 		$request->addParams(array(
 			'plugin' => null,
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 
@@ -97,10 +97,10 @@ class ActionsAuthorizeTest extends CakeTestCase {
 				'user' => 'mariano'
 			)
 		);
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 		$request->addParams(array(
 			'plugin' => null,
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 
@@ -120,10 +120,10 @@ class ActionsAuthorizeTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthorizeSettings() {
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 		$request->addParams(array(
 			'plugin' => null,
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 
@@ -150,10 +150,10 @@ class ActionsAuthorizeTest extends CakeTestCase {
  * @return void
  */
 	public function testActionMethod() {
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 		$request->addParams(array(
 			'plugin' => null,
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 
@@ -168,10 +168,10 @@ class ActionsAuthorizeTest extends CakeTestCase {
  */
 	public function testActionNoDoubleSlash() {
 		$this->auth->settings['actionPath'] = '/controllers/';
-		$request = new CakeRequest('/Posts/index', false);
+		$request = new CakeRequest('/posts/index', false);
 		$request->addParams(array(
 			'plugin' => null,
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 		$result = $this->auth->action($request);
@@ -184,10 +184,10 @@ class ActionsAuthorizeTest extends CakeTestCase {
  * @return void
  */
 	public function testActionWithPlugin() {
-		$request = new CakeRequest('/debug_kit/Posts/index', false);
+		$request = new CakeRequest('/debug_kit/posts/index', false);
 		$request->addParams(array(
 			'plugin' => 'debug_kit',
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'index'
 		));
 

@@ -22,7 +22,7 @@ App::uses('CakeSession', 'Model/Datasource');
 /**
  * Session Helper.
  *
- * Session reading from the view.ctp.
+ * Session reading from the view.
  *
  * @package       Cake.View.Helper
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html
@@ -32,7 +32,7 @@ class SessionHelper extends AppHelper {
 /**
  * Used to read a session values set in a controller for a key or return values for all keys.
  *
- * In your view.ctp: `$this->Session->read('Controller.sessKey');`
+ * In your view: `$this->Session->read('Controller.sessKey');`
  * Calling the method without a param will return all session vars
  *
  * @param string $name the name of the session key you want to read
@@ -46,7 +46,7 @@ class SessionHelper extends AppHelper {
 /**
  * Used to check is a session key has been set
  *
- * In your view.ctp: `$this->Session->check('Controller.sessKey');`
+ * In your view: `$this->Session->check('Controller.sessKey');`
  *
  * @param string $name
  * @return boolean
@@ -59,7 +59,7 @@ class SessionHelper extends AppHelper {
 /**
  * Returns last error encountered in a session
  *
- * In your view.ctp: `$this->Session->error();`
+ * In your view: `$this->Session->error();`
  *
  * @return string last error
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#displaying-notifications-or-flash-messages
@@ -71,11 +71,11 @@ class SessionHelper extends AppHelper {
 /**
  * Used to render the message set in Controller::Session::setFlash()
  *
- * In your view.ctp: $this->Session->flash('somekey');
+ * In your view: $this->Session->flash('somekey');
  * Will default to flash if no param is passed
  *
  * You can pass additional information into the flash message generation. This allows you
- * to consolidate all the parameters for a given type of flash message into the view.ctp.
+ * to consolidate all the parameters for a given type of flash message into the view.
  *
  * {{{
  * echo $this->Session->flash('flash', array('params' => array('class' => 'new-flash')));
@@ -109,7 +109,7 @@ class SessionHelper extends AppHelper {
  * ));
  * }}}
  *
- * @param string $key The [Message.]key you are rendering in the view.ctp.
+ * @param string $key The [Message.]key you are rendering in the view.
  * @param array $attrs Additional attributes to use for the creation of this flash message.
  *    Supports the 'params', and 'element' keys that are used in the helper.
  * @return string
@@ -150,7 +150,7 @@ class SessionHelper extends AppHelper {
 	}
 
 /**
- * Used to check is a session is valid in a view.ctp
+ * Used to check is a session is valid in a view
  *
  * @return boolean
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/session.html#SessionHelper::valid

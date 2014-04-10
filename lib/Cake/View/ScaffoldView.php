@@ -21,7 +21,7 @@
 App::uses('View', 'View');
 
 /**
- * ScaffoldView provides specific view.ctp file loading features for scaffolded views.
+ * ScaffoldView provides specific view file loading features for scaffolded views.
  *
  * @package       Cake.View
  */
@@ -30,7 +30,7 @@ class ScaffoldView extends View {
 /**
  * Override _getViewFileName Appends special scaffolding views in.
  *
- * @param string $name name of the view.ctp file to get.
+ * @param string $name name of the view file to get.
  * @return string action
  * @throws MissingViewException
  */

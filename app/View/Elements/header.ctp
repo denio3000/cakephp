@@ -13,7 +13,7 @@
                     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Posts <b class="caret"></b></a>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo $this->webroot .'posts/index'; ?>">List all posts</a></li>
-                        <li><a href="<?php echo $this->webroot .'posts/edit'; ?>">Add post</a></li>
+                        <li><a href="<?php echo $this->webroot .'posts/add'; ?>">Add post</a></li>
                         <li><a href="<?php echo $this->webroot .'postCategories/edit'; ?>">Add category post</a></li>
                     </ul>
                 </li>
@@ -32,8 +32,19 @@
                     </ul>
                 </li>
                 <li><a data-toggle="modal" onclick="ajaxPopup('<?php echo Router::url(array('controller' => 'messages', 'action' =>'add'), true); ?>');" href="#popup">Contact</a></li>
-                <li> <?php if($logged_in): ?>
-                    Welcome <?php echo $current_user['username']; ?>
+                <li class="user-area">
+                    <?php if($logged_in): ?>
+                    <?php
+                     echo $this->Html->link(
+                        $current_user['username'],
+                        array(
+                            'controller' => 'users',
+                            'action'=> 'view',
+                            $current_user['id']),
+                            array(
+                                "class" => "userArea"
+                            )
+                    ); ?>
                 </li><li> <?php echo $this->Html->link('Logout', array('controller' => 'users','action' => 'logout')); ?>
                 <?php else: ?>
                     <?php echo $this->Html->link('Login', array('controller' => 'users','action' => 'login')); ?>

@@ -504,7 +504,7 @@ class SchemaShell extends AppShell {
 		$parser = parent::getOptionParser();
 		$parser->description(
 			__d('cake_console', 'The Schema Shell generates a schema object from the database and updates the database from the schema.')
-		)->addSubcommand('view.ctp', array(
+		)->addSubcommand('view', array(
 			'help' => __d('cake_console', 'Read and output the contents of a schema file'),
 			'parser' => array(
 				'options' => compact('plugin', 'path', 'file', 'name', 'connection'),
