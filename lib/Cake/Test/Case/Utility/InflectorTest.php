@@ -92,6 +92,8 @@ class InflectorTest extends CakeTestCase {
 		$this->assertEquals(Inflector::singularize('faxes'), 'fax');
 		$this->assertEquals(Inflector::singularize('waxes'), 'wax');
 		$this->assertEquals(Inflector::singularize('niches'), 'niche');
+		$this->assertEquals(Inflector::singularize('caves'), 'cave');
+		$this->assertEquals(Inflector::singularize('graves'), 'grave');
 		$this->assertEquals(Inflector::singularize('waves'), 'wave');
 		$this->assertEquals(Inflector::singularize('bureaus'), 'bureau');
 		$this->assertEquals(Inflector::singularize('genetic_analyses'), 'genetic_analysis');
@@ -249,7 +251,7 @@ class InflectorTest extends CakeTestCase {
 		$expected = 'の話が出たので大丈夫かなあと';
 		$this->assertEquals($expected, $result);
 
-		$result = Inflector::slug('Posts/view.ctp/한국어/page:1/sort:asc');
+		$result = Inflector::slug('posts/view/한국어/page:1/sort:asc');
 		$expected = 'posts_view_한국어_page_1_sort_asc';
 		$this->assertEquals($expected, $result);
 
@@ -350,7 +352,7 @@ class InflectorTest extends CakeTestCase {
  * @return void
  */
 	public function testHumanization() {
-		$this->assertEquals(Inflector::humanize('Posts'), 'Posts');
+		$this->assertEquals(Inflector::humanize('posts'), 'Posts');
 		$this->assertEquals(Inflector::humanize('posts_tags'), 'Posts Tags');
 		$this->assertEquals(Inflector::humanize('file_systems'), 'File Systems');
 	}

@@ -79,7 +79,7 @@ class JsHelper extends AppHelper {
 /**
  * Constructor - determines engine helper
  *
- * @param View $View the view.ctp object the helper is attached to.
+ * @param View $View the view object the helper is attached to.
  * @param string|array $settings Settings array contains name of engine helper.
  */
 	public function __construct(View $View, $settings = array()) {

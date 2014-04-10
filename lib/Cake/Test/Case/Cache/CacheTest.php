@@ -246,37 +246,39 @@ class CacheTest extends CakeTestCase {
 
 /**
  * testGroupConfigs method
+ *
+ * @return void
  */
 	public function testGroupConfigs() {
 		Cache::config('latest', array(
 			'duration' => 300,
 			'engine' => 'File',
 			'groups' => array(
-				'Posts', 'comments',
+				'posts', 'comments',
 			),
 		));
 
 		$expected = array(
-			'Posts' => array('latest'),
+			'posts' => array('latest'),
 			'comments' => array('latest'),
 		);
 		$result = Cache::groupConfigs();
 		$this->assertEquals($expected, $result);
 
-		$result = Cache::groupConfigs('Posts');
-		$this->assertEquals(array('Posts' => array('latest')), $result);
+		$result = Cache::groupConfigs('posts');
+		$this->assertEquals(array('posts' => array('latest')), $result);
 
 		Cache::config('page', array(
 			'duration' => 86400,
 			'engine' => 'File',
 			'groups' => array(
-				'Posts', 'archive'
+				'posts', 'archive'
 			),
 		));
 
 		$result = Cache::groupConfigs();
 		$expected = array(
-			'Posts' => array('latest', 'page'),
+			'posts' => array('latest', 'page'),
 			'comments' => array('latest'),
 			'archive' => array('page'),
 		);
@@ -289,7 +291,7 @@ class CacheTest extends CakeTestCase {
 			'duration' => 86400 * 30,
 			'engine' => 'File',
 			'groups' => array(
-				'Posts', 'archive', 'comments',
+				'posts', 'archive', 'comments',
 			),
 		));
 
@@ -299,7 +301,9 @@ class CacheTest extends CakeTestCase {
 
 /**
  * testGroupConfigsThrowsException method
+ *
  * @expectedException CacheException
+ * @return void
  */
 	public function testGroupConfigsThrowsException() {
 		Cache::groupConfigs('bogus');

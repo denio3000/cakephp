@@ -37,12 +37,12 @@ class IniAclTest extends CakeTestCase {
 		$Ini->config = $Ini->readConfigFile($iniFile);
 
 		$this->assertFalse($Ini->check('admin', 'ads'));
-		$this->assertTrue($Ini->check('admin', 'Posts'));
+		$this->assertTrue($Ini->check('admin', 'posts'));
 
-		$this->assertTrue($Ini->check('jenny', 'Posts'));
+		$this->assertTrue($Ini->check('jenny', 'posts'));
 		$this->assertTrue($Ini->check('jenny', 'ads'));
 
-		$this->assertTrue($Ini->check('paul', 'Posts'));
+		$this->assertTrue($Ini->check('paul', 'posts'));
 		$this->assertFalse($Ini->check('paul', 'ads'));
 
 		$this->assertFalse($Ini->check('nobody', 'comments'));
@@ -63,6 +63,6 @@ class IniAclTest extends CakeTestCase {
 		$user = array(
 			'User' => array('username' => 'admin')
 		);
-		$this->assertTrue($Ini->check($user, 'Posts'));
+		$this->assertTrue($Ini->check($user, 'posts'));
 	}
 }

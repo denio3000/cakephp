@@ -40,18 +40,18 @@ class PagesControllerTest extends CakeTestCase {
 
 		$Pages->viewPath = 'Posts';
 		$Pages->display('index');
-		$this->assertRegExp('/Posts index/', $Pages->response->body());
+		$this->assertRegExp('/posts index/', $Pages->response->body());
 		$this->assertEquals('index', $Pages->viewVars['page']);
 
 		$Pages->viewPath = 'Themed';
 		$Pages->display('TestTheme', 'Posts', 'index');
-		$this->assertRegExp('/Posts index themed view.ctp/', $Pages->response->body());
+		$this->assertRegExp('/posts index themed view/', $Pages->response->body());
 		$this->assertEquals('TestTheme', $Pages->viewVars['page']);
 		$this->assertEquals('Posts', $Pages->viewVars['subpage']);
 	}
 
 /**
- * Test that missing view.ctp renders 404 page in production
+ * Test that missing view renders 404 page in production
  *
  * @expectedException NotFoundException
  * @expectedExceptionCode 404
@@ -64,7 +64,7 @@ class PagesControllerTest extends CakeTestCase {
 	}
 
 /**
- * Test that missing view.ctp in debug mode renders missing_view error page
+ * Test that missing view in debug mode renders missing_view error page
  *
  * @expectedException MissingViewException
  * @expectedExceptionCode 500

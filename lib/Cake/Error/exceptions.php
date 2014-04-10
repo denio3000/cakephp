@@ -207,7 +207,7 @@ class CakeException extends CakeBaseException {
 
 /**
  * Array of attributes that are passed in from the constructor, and
- * made available in the view.ctp when a development error is displayed.
+ * made available in the view when a development error is displayed.
  *
  * @var array
  */
@@ -227,7 +227,7 @@ class CakeException extends CakeBaseException {
  * when debug = 0.
  *
  * @param string|array $message Either the string of the error message, or an array of attributes
- *   that are made available in the view.ctp, and sprintf()'d into CakeException::$_messageTemplate
+ *   that are made available in the view, and sprintf()'d into CakeException::$_messageTemplate
  * @param integer $code The code of the error, is also the HTTP status code for the error.
  */
 	public function __construct($message, $code = 500) {
@@ -326,7 +326,7 @@ class MissingBehaviorException extends CakeException {
 }
 
 /**
- * Used when a view.ctp file cannot be found.
+ * Used when a view file cannot be found.
  *
  * @package       Cake.Error
  */

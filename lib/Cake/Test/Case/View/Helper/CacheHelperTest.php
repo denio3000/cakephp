@@ -100,7 +100,7 @@ class CacheHelperTest extends CakeTestCase {
 	}
 
 /**
- * test cache parsing with no cake:nocache tags in view.ctp file.
+ * test cache parsing with no cake:nocache tags in view file.
  *
  * @return void
  */
@@ -146,8 +146,8 @@ class CacheHelperTest extends CakeTestCase {
 			'named' => array()
 		));
 		$this->Controller->cacheAction = 21600;
-		$this->Controller->request->here = '/Posts/view.ctp/風街ろまん';
-		$this->Controller->action = 'view.ctp';
+		$this->Controller->request->here = '/posts/view/風街ろまん';
+		$this->Controller->action = 'view';
 
 		$View = new View($this->Controller);
 		$View->render('index');
@@ -159,7 +159,7 @@ class CacheHelperTest extends CakeTestCase {
 	}
 
 /**
- * Test cache parsing with cake:nocache tags in view.ctp file.
+ * Test cache parsing with cake:nocache tags in view file.
  *
  * @return void
  */
@@ -257,7 +257,7 @@ class CacheHelperTest extends CakeTestCase {
 		$this->assertNotRegExp('/1\. layout before content/', $result);
 		$this->assertNotRegExp('/2\. in plain element/', $result);
 		$this->assertNotRegExp('/3\. layout after test element/', $result);
-		$this->assertNotRegExp('/4\. in view.ctp file/', $result);
+		$this->assertNotRegExp('/4\. in view file/', $result);
 		$this->assertNotRegExp('/5\. layout after content/', $result);
 		$this->assertNotRegExp('/6\. in element with no cache tags/', $result);
 		$this->assertNotRegExp('/7\. layout after content and after element with no cache tags/', $result);
@@ -277,14 +277,14 @@ class CacheHelperTest extends CakeTestCase {
 		$this->assertRegExp('/1\. layout before content/', $contents);
 		$this->assertNotRegExp('/2\. in plain element/', $contents);
 		$this->assertRegExp('/3\. layout after test element/', $contents);
-		$this->assertRegExp('/4\. in view.ctp file/', $contents);
+		$this->assertRegExp('/4\. in view file/', $contents);
 		$this->assertRegExp('/5\. layout after content/', $contents);
 		$this->assertRegExp('/6\. in element with no cache tags/', $contents);
 		$this->assertRegExp('/7\. layout after content and after element with no cache tags/', $contents);
 	}
 
 /**
- * test cache of view.ctp vars
+ * test cache of view vars
  *
  * @return void
  */
@@ -511,7 +511,7 @@ class CacheHelperTest extends CakeTestCase {
 /**
  * test ControllerName contains AppName
  *
- * This test verifies view.ctp cache is created correctly when the app name is contained in part of the controller name.
+ * This test verifies view cache is created correctly when the app name is contained in part of the controller name.
  * (webapp Name) base name is 'cache' controller is 'cacheTest' action is 'cache_name'
  * apps URL would look something like http://localhost/cache/cacheTest/cache_name
  *
@@ -557,17 +557,17 @@ class CacheHelperTest extends CakeTestCase {
 		$Cache = $this->getMock('CacheHelper', array('_parseContent'), array($View));
 		$Cache->expects($this->once())
 			->method('_parseContent')
-			->with('Posts/index', 'content')
+			->with('posts/index', 'content')
 			->will($this->returnValue(''));
 
-		$Cache->afterRenderFile('Posts/index', 'content');
+		$Cache->afterRenderFile('posts/index', 'content');
 
 		Configure::write('Cache.check', false);
-		$Cache->afterRender('Posts/index');
+		$Cache->afterRender('posts/index');
 
 		Configure::write('Cache.check', true);
 		$View->cacheAction = false;
-		$Cache->afterRender('Posts/index');
+		$Cache->afterRender('posts/index');
 	}
 
 /**
@@ -584,17 +584,17 @@ class CacheHelperTest extends CakeTestCase {
 		$Cache = $this->getMock('CacheHelper', array('cache'), array($View));
 		$Cache->expects($this->once())
 			->method('cache')
-			->with('Posts/index', $View->output)
+			->with('posts/index', $View->output)
 			->will($this->returnValue(''));
 
-		$Cache->afterLayout('Posts/index');
+		$Cache->afterLayout('posts/index');
 
 		Configure::write('Cache.check', false);
-		$Cache->afterLayout('Posts/index');
+		$Cache->afterLayout('posts/index');
 
 		Configure::write('Cache.check', true);
 		$View->cacheAction = false;
-		$Cache->afterLayout('Posts/index');
+		$Cache->afterLayout('posts/index');
 	}
 
 /**

@@ -248,7 +248,7 @@ class Helper extends Object {
  *
  * Returns a URL pointing at the provided parameters.
  *
- * @param string|array $url Either a relative string url like `/products/view.ctp/23` or
+ * @param string|array $url Either a relative string url like `/products/view/23` or
  *    an array of URL parameters. Using an array for URLs will allow you to leverage
  *    the reverse routing features of CakePHP.
  * @param boolean $full If true, the full base URL will be prepended to the result
@@ -525,7 +525,7 @@ class Helper extends Object {
  * Sets this helper's model and field properties to the dot-separated value-pair in $entity.
  *
  * @param string $entity A field name, like "ModelName.fieldName" or "ModelName.ID.fieldName"
- * @param boolean $setScope Sets the view.ctp scope to the model specified in $tagValue
+ * @param boolean $setScope Sets the view scope to the model specified in $tagValue
  * @return void
  */
 	public function setEntity($entity, $setScope = false) {
@@ -633,7 +633,7 @@ class Helper extends Object {
  * Uses the current View::entity() settings to generate a CamelCased id attribute.
  *
  * @param array|string $options Either an array of html attributes to add $id into, or a string
- *   with a view.ctp entity path to get a domId for.
+ *   with a view entity path to get a domId for.
  * @param string $id The name of the 'id' attribute.
  * @return mixed If $options was an array, an array will be returned with $id set. If a string
  *   was supplied, a string will be returned.
@@ -808,23 +808,23 @@ class Helper extends Object {
 	}
 
 /**
- * Before render callback. beforeRender is called before the view.ctp file is rendered.
+ * Before render callback. beforeRender is called before the view file is rendered.
  *
  * Overridden in subclasses.
  *
- * @param string $viewFile The view.ctp file that is going to be rendered
+ * @param string $viewFile The view file that is going to be rendered
  * @return void
  */
 	public function beforeRender($viewFile) {
 	}
 
 /**
- * After render callback. afterRender is called after the view.ctp file is rendered
+ * After render callback. afterRender is called after the view file is rendered
  * but before the layout has been rendered.
  *
  * Overridden in subclasses.
  *
- * @param string $viewFile The view.ctp file that was rendered.
+ * @param string $viewFile The view file that was rendered.
  * @return void
  */
 	public function afterRender($viewFile) {
@@ -854,7 +854,7 @@ class Helper extends Object {
 
 /**
  * Before render file callback.
- * Called before any view.ctp fragment is rendered.
+ * Called before any view fragment is rendered.
  *
  * Overridden in subclasses.
  *
@@ -866,7 +866,7 @@ class Helper extends Object {
 
 /**
  * After render file callback.
- * Called after any view.ctp fragment is rendered.
+ * Called after any view fragment is rendered.
  *
  * Overridden in subclasses.
  *

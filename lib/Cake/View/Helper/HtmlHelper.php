@@ -218,14 +218,14 @@ class HtmlHelper extends AppHelper {
  *
  * `$this->Html->meta('description', 'A great page', array('inline' => false));`
  *
- * Append the meta tag to custom view.ctp block:
+ * Append the meta tag to custom view block:
  *
  * `$this->Html->meta('description', 'A great page', array('block' => 'metaTags'));`
  *
  * ### Options
  *
  * - `inline` Whether or not the link element should be output inline. Set to false to
- *   have the meta tag included in `$scripts_for_layout`, and appended to the 'meta' view.ctp block.
+ *   have the meta tag included in `$scripts_for_layout`, and appended to the 'meta' view block.
  * - `block` Choose a custom block to append the meta tag to. Using this option
  *   will override the inline option.
  *
@@ -502,7 +502,7 @@ class HtmlHelper extends AppHelper {
  * ### Options
  *
  * - `inline` Whether script should be output inline or into `$scripts_for_layout`. When set to false,
- *   the script tag will be appended to the 'script' view.ctp block as well as `$scripts_for_layout`.
+ *   the script tag will be appended to the 'script' view block as well as `$scripts_for_layout`.
  * - `block` The name of the block you want the script appended to. Leave undefined to output inline.
  *   Using this option will override the inline option.
  * - `once` Whether or not the script should be checked for uniqueness. If true scripts will only be
@@ -713,14 +713,15 @@ class HtmlHelper extends AppHelper {
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/html.html#creating-breadcrumb-trails-with-htmlhelper
  */
 	public function getCrumbList($options = array(), $startText = false) {
-		$defaults = array('firstClass' => 'first', 'lastClass' => 'last', 'separator' => '');
+		$defaults = array('firstClass' => 'first', 'lastClass' => 'last', 'separator' => '', 'escape' => true);
 		$options = array_merge($defaults, (array)$options);
 		$firstClass = $options['firstClass'];
 		$lastClass = $options['lastClass'];
 		$separator = $options['separator'];
-		unset($options['firstClass'], $options['lastClass'], $options['separator']);
+		$escape = $options['escape'];
+		unset($options['firstClass'], $options['lastClass'], $options['separator'], $options['escape']);
 
-		$crumbs = $this->_prepareCrumbs($startText);
+		$crumbs = $this->_prepareCrumbs($startText, $escape);
 		if (empty($crumbs)) {
 			return null;
 		}
@@ -752,9 +753,10 @@ class HtmlHelper extends AppHelper {
  * Prepends startText to crumbs array if set
  *
  * @param string $startText Text to prepend
+ * @param boolean $escape If the output should be escaped or not
  * @return array Crumb list including startText (if provided)
  */
-	protected function _prepareCrumbs($startText) {
+	protected function _prepareCrumbs($startText, $escape = true) {
 		$crumbs = $this->_crumbs;
 		if ($startText) {
 			if (!is_array($startText)) {
@@ -766,7 +768,7 @@ class HtmlHelper extends AppHelper {
 			$startText += array('url' => '/', 'text' => __d('cake', 'Home'));
 			list($url, $text) = array($startText['url'], $startText['text']);
 			unset($startText['url'], $startText['text']);
-			array_unshift($crumbs, array($text, $url, $startText));
+			array_unshift($crumbs, array($text, $url, $startText + array('escape' => $escape)));
 		}
 		return $crumbs;
 	}

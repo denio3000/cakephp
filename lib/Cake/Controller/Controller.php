@@ -40,7 +40,7 @@ App::uses('CakeEventManager', 'Event');
  * `$this->response` allows you to manipulate all aspects of the response.
  *
  * Controllers are created by Dispatcher based on request parameters and routing. By default controllers and actions
- * use conventional names. For example `/Posts/index` maps to `PostsController::index()`. You can re-map URLs
+ * use conventional names. For example `/posts/index` maps to `PostsController::index()`. You can re-map URLs
  * using Router::connect().
  *
  * @package       Cake.Controller
@@ -135,14 +135,14 @@ class Controller extends Object implements CakeEventListener {
 	public $layoutPath = null;
 
 /**
- * Contains variables to be handed to the view.ctp.
+ * Contains variables to be handed to the view.
  *
  * @var array
  */
 	public $viewVars = array();
 
 /**
- * The name of the view.ctp file to render. The name specified
+ * The name of the view file to render. The name specified
  * is the filename in /app/View/<SubFolder> without the .ctp extension.
  *
  * @var string
@@ -150,7 +150,7 @@ class Controller extends Object implements CakeEventListener {
 	public $view = null;
 
 /**
- * The name of the layout file to render the view.ctp inside of. The name specified
+ * The name of the layout file to render the view inside of. The name specified
  * is the filename of the layout in /app/View/Layouts without the .ctp
  * extension.
  *
@@ -159,7 +159,7 @@ class Controller extends Object implements CakeEventListener {
 	public $layout = 'default';
 
 /**
- * Set to true to automatically render the view.ctp
+ * Set to true to automatically render the view
  * after action logic.
  *
  * @var boolean
@@ -207,7 +207,7 @@ class Controller extends Object implements CakeEventListener {
 	public $View;
 
 /**
- * File extension for view.ctp templates. Defaults to CakePHP's conventional ".ctp".
+ * File extension for view templates. Defaults to CakePHP's conventional ".ctp".
  *
  * @var string
  */
@@ -229,13 +229,13 @@ class Controller extends Object implements CakeEventListener {
  *
  * {{{
  * public $cacheAction = array(
- *		'view.ctp/23/' => 21600,
+ *		'view/23/' => 21600,
  *		'recalled/' => 86400
  *	);
  * }}}
  *
  * $cacheAction can also be set to a strtotime() compatible string. This
- * marks all the actions in the controller for view.ctp caching.
+ * marks all the actions in the controller for view caching.
  *
  * @var mixed
  * @link http://book.cakephp.org/2.0/en/core-libraries/helpers/cache.html#additional-configuration-options
@@ -443,7 +443,7 @@ class Controller extends Object implements CakeEventListener {
  *
  * - $this->request - To the $request parameter
  * - $this->plugin - To the $request->params['plugin']
- * - $this->view.ctp - To the $request->params['action']
+ * - $this->view - To the $request->params['action']
  * - $this->autoLayout - To the false if $request->params['bare']; is set.
  * - $this->autoRender - To false if $request->params['return'] == 1
  * - $this->passedArgs - The the combined results of params['named'] and params['pass]
@@ -827,7 +827,7 @@ class Controller extends Object implements CakeEventListener {
 	}
 
 /**
- * Saves a variable for use inside a view.ctp template.
+ * Saves a variable for use inside a view template.
  *
  * @param string|array $one A string or an array of data.
  * @param string|array $two Value in case $one is a string (which then works as the key).
@@ -874,6 +874,7 @@ class Controller extends Object implements CakeEventListener {
  * Returns number of errors in a submitted FORM.
  *
  * @return integer Number of errors
+ * @deprecated This method will be removed in 3.0
  */
 	public function validate() {
 		$args = func_get_args();
@@ -892,6 +893,7 @@ class Controller extends Object implements CakeEventListener {
  *
  * @param mixed A list of models as a variable argument
  * @return array Validation errors, or false if none
+ * @deprecated This method will be removed in 3.0
  */
 	public function validateErrors() {
 		$objects = func_get_args();
@@ -913,11 +915,11 @@ class Controller extends Object implements CakeEventListener {
 	}
 
 /**
- * Instantiates the correct view.ctp class, hands it its data, and uses it to render the view.ctp output.
+ * Instantiates the correct view class, hands it its data, and uses it to render the view output.
  *
  * @param string $view View to use for rendering
  * @param string $layout Layout to use
- * @return CakeResponse A response object containing the rendered view.ctp.
+ * @return CakeResponse A response object containing the rendered view.
  * @link http://book.cakephp.org/2.0/en/controllers.html#Controller::render
  */
 	public function render($view = null, $layout = null) {
@@ -1073,7 +1075,6 @@ class Controller extends Object implements CakeEventListener {
  * @param array $whitelist List of allowed options for paging
  * @return array Model query results
  * @link http://book.cakephp.org/2.0/en/controllers.html#Controller::paginate
- * @deprecated Will be removed in 3.0. Use PaginatorComponent instead.
  */
 	public function paginate($object = null, $scope = array(), $whitelist = array()) {
 		return $this->Components->load('Paginator', $this->paginate)->paginate($object, $scope, $whitelist);
@@ -1090,8 +1091,8 @@ class Controller extends Object implements CakeEventListener {
 	}
 
 /**
- * Called after the controller action is run, but before the view.ctp is rendered. You can use this method
- * to perform logic or set view.ctp variables that are required on every request.
+ * Called after the controller action is run, but before the view is rendered. You can use this method
+ * to perform logic or set view variables that are required on every request.
  *
  * @return void
  * @link http://book.cakephp.org/2.0/en/controllers.html#request-life-cycle-callbacks
@@ -1225,7 +1226,7 @@ class Controller extends Object implements CakeEventListener {
 	}
 
 /**
- * Constructs the view.ctp class instance based on the controller property
+ * Constructs the view class instance based on the controller property
  *
  * @return View
  */

@@ -11,3 +11,6 @@
     <p class="step-description">
         <?php echo $CategoryLoaded['PostCategory']['description']; ?>
     </p>
+<hr/>
+
+<?php  echo $this->element('posts/list', array("posts" => $posts)); ?>

@@ -242,7 +242,7 @@ class FolderTest extends CakeTestCase {
 		$result = $Folder->delete($mv);
 		$this->assertTrue($result);
 
-		$new = APP . 'edit.ctp';
+		$new = APP . 'index.php';
 		$result = $Folder->create($new);
 		$this->assertFalse($result);
 

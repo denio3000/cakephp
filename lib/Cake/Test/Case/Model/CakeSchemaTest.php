@@ -51,7 +51,7 @@ class MyAppSchema extends CakeSchema {
 	);
 
 /**
- * Posts property
+ * posts property
  *
  * @var array
  */
@@ -121,7 +121,7 @@ class TestAppSchema extends CakeSchema {
 	);
 
 /**
- * Posts property
+ * posts property
  *
  * @var array
  */
@@ -209,7 +209,7 @@ class SchemaPost extends CakeTestModel {
  *
  * @var string
  */
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 
 /**
  * hasMany property
@@ -469,7 +469,7 @@ class CakeSchemaTest extends CakeTestCase {
 		));
 		unset($read['tables']['missing']);
 
-		$expected = array('comments', 'datatypes', 'Posts', 'posts_tags', 'tags');
+		$expected = array('comments', 'datatypes', 'posts', 'posts_tags', 'tags');
 		foreach ($expected as $table) {
 			$this->assertTrue(isset($read['tables'][$table]), 'Missing table ' . $table);
 		}
@@ -549,7 +549,7 @@ class CakeSchemaTest extends CakeTestCase {
 			'models' => array('SchemaPost')
 		));
 
-		$this->assertFalse(isset($read['tables']['missing']['Posts']), 'Posts table was not read from tablePrefix');
+		$this->assertFalse(isset($read['tables']['missing']['posts']), 'Posts table was not read from tablePrefix');
 	}
 
 /**
@@ -620,7 +620,7 @@ class CakeSchemaTest extends CakeTestCase {
 		$this->assertTrue(isset($read['tables']['auth_users']));
 		$this->assertTrue(isset($read['tables']['authors']));
 		$this->assertTrue(isset($read['tables']['test_plugin_comments']));
-		$this->assertTrue(isset($read['tables']['Posts']));
+		$this->assertTrue(isset($read['tables']['posts']));
 		$this->assertTrue(count($read['tables']) >= 4);
 
 		App::build();
@@ -650,7 +650,7 @@ class CakeSchemaTest extends CakeTestCase {
 			'name' => 'TestApp',
 			'models' => array('SchemaCrossDatabase', 'SchemaPost')
 		));
-		$this->assertTrue(isset($read['tables']['Posts']));
+		$this->assertTrue(isset($read['tables']['posts']));
 		$this->assertFalse(isset($read['tables']['cross_database']), 'Cross database should not appear');
 		$this->assertFalse(isset($read['tables']['missing']['cross_database']), 'Cross database should not appear');
 
@@ -659,8 +659,8 @@ class CakeSchemaTest extends CakeTestCase {
 			'name' => 'TestApp',
 			'models' => array('SchemaCrossDatabase', 'SchemaPost')
 		));
-		$this->assertFalse(isset($read['tables']['Posts']), 'Posts should not appear');
-		$this->assertFalse(isset($read['tables']['Posts']), 'Posts should not appear');
+		$this->assertFalse(isset($read['tables']['posts']), 'Posts should not appear');
+		$this->assertFalse(isset($read['tables']['posts']), 'Posts should not appear');
 		$this->assertTrue(isset($read['tables']['cross_database']));
 
 		$fixture->drop($db);
@@ -682,8 +682,8 @@ class CakeSchemaTest extends CakeTestCase {
 			'updated' => array('type' => 'datetime', 'null' => true, 'default' => null),
 			'indexes' => array('PRIMARY' => array('column' => 'id', 'unique' => true)),
 		);
-		$result = $this->Schema->generateTable('Posts', $posts);
-		$this->assertRegExp('/public \$Posts/', $result);
+		$result = $this->Schema->generateTable('posts', $posts);
+		$this->assertRegExp('/public \$posts/', $result);
 
 		$posts = array(
 			'id' => array('type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'primary'),
@@ -744,7 +744,7 @@ class CakeSchemaTest extends CakeTestCase {
 					'comment' => array('type' => 'text', 'null' => false, 'default' => null),
 				)
 			),
-			'Posts' => array(
+			'posts' => array(
 				'add' => array(
 					'summary' => array('type' => 'text', 'null' => true, 'after' => 'body'),
 				),
@@ -809,20 +809,20 @@ class CakeSchemaTest extends CakeTestCase {
  */
 	public function testCompareEmptyStringAndNull() {
 		$One = new CakeSchema(array(
-			'Posts' => array(
+			'posts' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
 				'name' => array('type' => 'string', 'null' => false, 'default' => '')
 			)
 		));
 		$Two = new CakeSchema(array(
-			'Posts' => array(
+			'posts' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'default' => null, 'key' => 'primary'),
 				'name' => array('type' => 'string', 'null' => false, 'default' => null)
 			)
 		));
 		$compare = $One->compare($Two);
 		$expected = array(
-			'Posts' => array(
+			'posts' => array(
 				'change' => array(
 					'name' => array('type' => 'string', 'null' => false, 'default' => null)
 				)
@@ -838,7 +838,7 @@ class CakeSchemaTest extends CakeTestCase {
  */
 	public function testTableParametersAndIndexComparison() {
 		$old = array(
-			'Posts' => array(
+			'posts' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'primary'),
 				'author_id' => array('type' => 'integer', 'null' => false),
 				'title' => array('type' => 'string', 'null' => false),
@@ -866,7 +866,7 @@ class CakeSchemaTest extends CakeTestCase {
 			)
 		);
 		$new = array(
-			'Posts' => array(
+			'posts' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'primary'),
 				'author_id' => array('type' => 'integer', 'null' => false),
 				'title' => array('type' => 'string', 'null' => false),
@@ -895,7 +895,7 @@ class CakeSchemaTest extends CakeTestCase {
 		);
 		$compare = $this->Schema->compare($old, $new);
 		$expected = array(
-			'Posts' => array(
+			'posts' => array(
 				'add' => array(
 					'indexes' => array('author_id' => array('column' => 'author_id')),
 				),
@@ -929,7 +929,7 @@ class CakeSchemaTest extends CakeTestCase {
  */
 	public function testCompareVarcharToDatetime() {
 		$old = array(
-			'Posts' => array(
+			'posts' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'primary'),
 				'author_id' => array('type' => 'integer', 'null' => false),
 				'title' => array('type' => 'string', 'null' => true, 'length' => 45),
@@ -943,7 +943,7 @@ class CakeSchemaTest extends CakeTestCase {
 			),
 		);
 		$new = array(
-			'Posts' => array(
+			'posts' => array(
 				'id' => array('type' => 'integer', 'null' => false, 'default' => 0, 'key' => 'primary'),
 				'author_id' => array('type' => 'integer', 'null' => false),
 				'title' => array('type' => 'datetime', 'null' => false),
@@ -958,7 +958,7 @@ class CakeSchemaTest extends CakeTestCase {
 		);
 		$compare = $this->Schema->compare($old, $new);
 		$expected = array(
-			'Posts' => array(
+			'posts' => array(
 				'change' => array(
 					'title' => array(
 						'type' => 'datetime',

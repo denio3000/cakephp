@@ -16,35 +16,35 @@ App::uses('View', 'View');
 App::uses('Xml', 'Utility');
 
 /**
- * A view.ctp class that is used for creating XML responses.
+ * A view class that is used for creating XML responses.
  *
- * By setting the '_serialize' key in your controller, you can specify a view.ctp variable
+ * By setting the '_serialize' key in your controller, you can specify a view variable
  * that should be serialized to XML and used as the response for the request.
- * This allows you to omit views + layouts, if your just need to emit a single view.ctp
+ * This allows you to omit views + layouts, if your just need to emit a single view
  * variable as the XML response.
  *
  * In your controller, you could do the following:
  *
- * `$this->set(array('Posts' => $Posts, '_serialize' => 'Posts'));`
+ * `$this->set(array('posts' => $posts, '_serialize' => 'posts'));`
  *
- * When the view.ctp is rendered, the `$Posts` view.ctp variable will be serialized
+ * When the view is rendered, the `$posts` view variable will be serialized
  * into XML.
  *
- * **Note** The view.ctp variable you specify must be compatible with Xml::fromArray().
+ * **Note** The view variable you specify must be compatible with Xml::fromArray().
  *
  * You can also define `'_serialize'` as an array. This will create an additional
- * top level element named `<response>` containing all the named view.ctp variables:
+ * top level element named `<response>` containing all the named view variables:
  *
  * {{{
- * $this->set(compact('Posts', 'users', 'stuff'));
- * $this->set('_serialize', array('Posts', 'users'));
+ * $this->set(compact('posts', 'users', 'stuff'));
+ * $this->set('_serialize', array('posts', 'users'));
  * }}}
  *
  * The above would generate a XML object that looks like:
  *
- * `<response><Posts>...</Posts><users>...</users></response>`
+ * `<response><posts>...</posts><users>...</users></response>`
  *
- * If you don't use the `_serialize` key, you will need a view.ctp. You can use extended
+ * If you don't use the `_serialize` key, you will need a view. You can use extended
  * views to provide layout like functionality.
  *
  * @package       Cake.View
@@ -73,7 +73,7 @@ class XmlView extends View {
 	}
 
 /**
- * Skip loading helpers if this is a _serialize based view.ctp.
+ * Skip loading helpers if this is a _serialize based view.
  *
  * @return void
  */
@@ -85,16 +85,16 @@ class XmlView extends View {
 	}
 
 /**
- * Render a XML view.ctp.
+ * Render a XML view.
  *
  * Uses the special '_serialize' parameter to convert a set of
- * view.ctp variables into a XML response. Makes generating simple
+ * view variables into a XML response. Makes generating simple
  * XML responses very easy. You can omit the '_serialize' parameter,
- * and use a normal view.ctp + layout as well.
+ * and use a normal view + layout as well.
  *
- * @param string $view The view.ctp being rendered.
+ * @param string $view The view being rendered.
  * @param string $layout The layout being rendered.
- * @return string The rendered view.ctp.
+ * @return string The rendered view.
  */
 	public function render($view = null, $layout = null) {
 		if (isset($this->viewVars['_serialize'])) {
@@ -106,7 +106,7 @@ class XmlView extends View {
 	}
 
 /**
- * Serialize view.ctp vars.
+ * Serialize view vars.
  *
  * @param array $serialize The viewVars that need to be serialized.
  * @return string The serialized data

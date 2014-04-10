@@ -49,7 +49,7 @@ class ApiShell extends AppShell {
 			'component' => CAKE . 'Controller' . DS . 'Component' . DS,
 			'helper' => CAKE . 'View' . DS . 'Helper' . DS,
 			'model' => CAKE . 'Model' . DS,
-			'view.ctp' => CAKE . 'View' . DS,
+			'view' => CAKE . 'View' . DS,
 			'core' => CAKE
 		));
 	}
@@ -144,7 +144,7 @@ class ApiShell extends AppShell {
 	public function getOptionParser() {
 		$parser = parent::getOptionParser();
 		$parser->addArgument('type', array(
-			'help' => __d('cake_console', 'Either a full path or type of class (model, behavior, controller, component, view.ctp, helper)')
+			'help' => __d('cake_console', 'Either a full path or type of class (model, behavior, controller, component, view, helper)')
 		))->addArgument('className', array(
 			'help' => __d('cake_console', 'A CakePHP core class name (e.g: Component, HtmlHelper).')
 		))->addOption('method', array(
@@ -166,7 +166,7 @@ class ApiShell extends AppShell {
 
 		$commands = array(
 			'path' => "\t<type>\n" .
-				"\t\tEither a full path or type of class (model, behavior, controller, component, view.ctp, helper).\n" .
+				"\t\tEither a full path or type of class (model, behavior, controller, component, view, helper).\n" .
 				"\t\tAvailable values:\n\n" .
 				"\t\tbehavior\tLook for class in CakePHP behavior path\n" .
 				"\t\tcache\tLook for class in CakePHP cache path\n" .
@@ -174,7 +174,7 @@ class ApiShell extends AppShell {
 				"\t\tcomponent\tLook for class in CakePHP component path\n" .
 				"\t\thelper\tLook for class in CakePHP helper path\n" .
 				"\t\tmodel\tLook for class in CakePHP model path\n" .
-				"\t\tview.ctp\tLook for class in CakePHP view.ctp path\n",
+				"\t\tview\tLook for class in CakePHP view path\n",
 			'className' => "\t<className>\n" .
 				"\t\tA CakePHP core class name (e.g: Component, HtmlHelper).\n"
 		);

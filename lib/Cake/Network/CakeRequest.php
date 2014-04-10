@@ -207,7 +207,9 @@ class CakeRequest implements ArrayAccess {
 			$query = $_GET;
 		}
 
-		unset($query[$this->base . '/' . str_replace('.', '_', urldecode($this->url))]);
+		$unsetUrl = '/' . str_replace('.', '_', urldecode($this->url));
+		unset($query[$unsetUrl]);
+		unset($query[$this->base . $unsetUrl]);
 		if (strpos($this->url, '?') !== false) {
 			list(, $querystr) = explode('?', $this->url);
 			parse_str($querystr, $queryArgs);
@@ -254,10 +256,10 @@ class CakeRequest implements ArrayAccess {
 		if (strpos($uri, '?') !== false) {
 			list($uri) = explode('?', $uri, 2);
 		}
-		if (empty($uri) || $uri === '/' || $uri === '//' || $uri === '/edit.ctp') {
+		if (empty($uri) || $uri === '/' || $uri === '//' || $uri === '/index.php') {
 			$uri = '/';
 		}
-		$endsWithIndex = '/webroot/edit.ctp';
+		$endsWithIndex = '/webroot/index.php';
 		$endsWithLength = strlen($endsWithIndex);
 		if (
 			strlen($uri) >= $endsWithLength &&
@@ -271,7 +273,7 @@ class CakeRequest implements ArrayAccess {
 /**
  * Returns a base URL and sets the proper webroot
  *
- * If CakePHP is called with edit.ctp in the URL even though
+ * If CakePHP is called with index.php in the URL even though
  * URL Rewriting is activated (and thus not needed) it swallows
  * the unnecessary part from $base to prevent issue #3318.
  *
@@ -294,7 +296,7 @@ class CakeRequest implements ArrayAccess {
 		if (!$baseUrl) {
 			$base = dirname(env('PHP_SELF'));
 
-			$indexPos = strpos($base, '/webroot/edit.ctp');
+			$indexPos = strpos($base, '/webroot/index.php');
 			if ($indexPos !== false) {
 				$base = substr($base, 0, $indexPos) . '/webroot';
 			}

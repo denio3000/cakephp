@@ -275,17 +275,17 @@ class DbAclTest extends CakeTestCase {
 		$this->assertTrue($this->Acl->check('Micheal', 'tpsReports', 'delete'));
 		$this->assertTrue($this->Acl->check('Micheal', 'printers', 'create'));
 
-		$this->assertFalse($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view.ctp'));
-		$this->assertTrue($this->Acl->allow('root/users/Samir', 'ROOT/tpsReports/view.ctp', '*'));
-		$this->assertTrue($this->Acl->check('Samir', 'view.ctp', 'read'));
-		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view.ctp', 'update'));
+		$this->assertFalse($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view'));
+		$this->assertTrue($this->Acl->allow('root/users/Samir', 'ROOT/tpsReports/view', '*'));
+		$this->assertTrue($this->Acl->check('Samir', 'view', 'read'));
+		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view', 'update'));
 
 		$this->assertFalse($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/update', '*'));
 		$this->assertTrue($this->Acl->allow('root/users/Samir', 'ROOT/tpsReports/update', '*'));
 		$this->assertTrue($this->Acl->check('Samir', 'update', 'read'));
 		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/update', 'update'));
-		// Samir should still have his tpsReports/view.ctp permissions, but does not
-		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view.ctp', 'update'));
+		// Samir should still have his tpsReports/view permissions, but does not
+		$this->assertTrue($this->Acl->check('root/users/Samir', 'ROOT/tpsReports/view', 'update'));
 
 		$this->assertFalse($this->Acl->allow('Lumbergh', 'ROOT/tpsReports/DoesNotExist', 'create'));
 	}
@@ -324,7 +324,7 @@ class DbAclTest extends CakeTestCase {
 		$this->assertFalse($this->Acl->check(null, 'printers', 'create'));
 		$this->assertFalse($this->Acl->check('managers', null, 'read'));
 
-		$this->assertTrue($this->Acl->check('Bobs', 'ROOT/tpsReports/view.ctp/current', 'read'));
+		$this->assertTrue($this->Acl->check('Bobs', 'ROOT/tpsReports/view/current', 'read'));
 		$this->assertFalse($this->Acl->check('Samir', 'ROOT/tpsReports/update', 'read'));
 
 		$this->assertFalse($this->Acl->check('root/users/Milton', 'smash', 'delete'));
@@ -420,10 +420,10 @@ class DbAclTest extends CakeTestCase {
 		);
 		$this->assertEquals($expected, $result);
 
-		$result = $this->Acl->Aco->node('ROOT/tpsReports/view.ctp/current');
+		$result = $this->Acl->Aco->node('ROOT/tpsReports/view/current');
 		$expected = array(
 			array('AcoTwoTest' => array('id' => '4', 'parent_id' => '3', 'model' => null, 'foreign_key' => null, 'alias' => 'current')),
-			array('AcoTwoTest' => array('id' => '3', 'parent_id' => '2', 'model' => null, 'foreign_key' => null, 'alias' => 'view.ctp')),
+			array('AcoTwoTest' => array('id' => '3', 'parent_id' => '2', 'model' => null, 'foreign_key' => null, 'alias' => 'view')),
 			array('AcoTwoTest' => array('id' => '2', 'parent_id' => '1', 'model' => null, 'foreign_key' => null, 'alias' => 'tpsReports')),
 			array('AcoTwoTest' => array('id' => '1', 'parent_id' => null, 'model' => null, 'foreign_key' => null, 'alias' => 'ROOT')),
 		);
@@ -458,12 +458,12 @@ class DbAclTest extends CakeTestCase {
 		$this->Acl->allow('Samir', 'tpsReports', 'create');
 		$this->assertTrue($this->Acl->check('Samir', 'tpsReports', 'create'));
 
-		$this->assertFalse($this->Acl->check('Micheal', 'view.ctp', 'read'));
-		$this->Acl->allow('Micheal', 'view.ctp', array('read', 'create', 'update'));
-		$this->assertTrue($this->Acl->check('Micheal', 'view.ctp', 'read'));
-		$this->assertTrue($this->Acl->check('Micheal', 'view.ctp', 'create'));
-		$this->assertTrue($this->Acl->check('Micheal', 'view.ctp', 'update'));
-		$this->assertFalse($this->Acl->check('Micheal', 'view.ctp', 'delete'));
+		$this->assertFalse($this->Acl->check('Micheal', 'view', 'read'));
+		$this->Acl->allow('Micheal', 'view', array('read', 'create', 'update'));
+		$this->assertTrue($this->Acl->check('Micheal', 'view', 'read'));
+		$this->assertTrue($this->Acl->check('Micheal', 'view', 'create'));
+		$this->assertTrue($this->Acl->check('Micheal', 'view', 'update'));
+		$this->assertFalse($this->Acl->check('Micheal', 'view', 'delete'));
 
 		$this->assertFalse($this->Acl->allow('Peter', 'ROOT/tpsReports/DoesNotExist', 'create'));
 	}

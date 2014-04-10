@@ -32,12 +32,12 @@ $cakeDescription = __d('cake_dev', 'INFODESIGN: Default layout');
         echo $this->Js->writeBuffer(array('cache'=> TRUE ));
 	?>
     <script>
-       // alert('A');
+       var webroot = "<?php echo $this->webroot; ?>";
     </script>
 </head>
 <body class='<?php echo $this->request->params['controller'].'_'.$this->request->params['action']; ?>'>
 <?php echo $this->element('header'); ?>
-<?php echo $this->element('slider_homepage'); ?>
+<?php //echo $this->element('slider_homepage'); ?>
 <div id="wrapper" class="container">
     <?php echo $this->Session->flash(); ?>
     <?php echo $this->Session->flash('auth'); ?>
@@ -55,23 +55,7 @@ $cakeDescription = __d('cake_dev', 'INFODESIGN: Default layout');
             </div>
             <!-- /input-group -->
         </div>
-        <!-- /well -->
-        <div class="well">
-            <h4>Categories</h4>
-            <div class="row">
-                <div class="col-lg-9">
-                    <ul class="list-unstyled">
-                        <li><a href="#">Categorie Unu</a>
-                        </li>
-                        <li><a href="#">Categorie Doi</a>
-                        </li>
-                        <li><a href="#">Categorie Trei</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- /well -->
+        <?php echo $this->element('categoriesList_box') ;?>
     </div>
 
     <div class="col-lg-9 panel-body panel panel-default">

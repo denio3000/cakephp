@@ -249,8 +249,8 @@ class ConsoleOptionParserTest extends CakeTestCase {
 		$parser->addOption('no-commit', array('boolean' => true))
 			->addOption('table', array('short' => 't'));
 
-		$result = $parser->parse(array('--table', 'Posts', '--no-commit', 'arg1', 'arg2'));
-		$expected = array(array('table' => 'Posts', 'no-commit' => true, 'help' => false), array('arg1', 'arg2'));
+		$result = $parser->parse(array('--table', 'posts', '--no-commit', 'arg1', 'arg2'));
+		$expected = array(array('table' => 'posts', 'no-commit' => true, 'help' => false), array('arg1', 'arg2'));
 		$this->assertEquals($expected, $result, 'Boolean option did not parse correctly.');
 	}
 
@@ -258,6 +258,7 @@ class ConsoleOptionParserTest extends CakeTestCase {
  * test parsing options that do not exist.
  *
  * @expectedException ConsoleException
+ * @return void
  */
 	public function testOptionThatDoesNotExist() {
 		$parser = new ConsoleOptionParser('test', false);
@@ -270,6 +271,7 @@ class ConsoleOptionParserTest extends CakeTestCase {
  * test parsing short options that do not exist.
  *
  * @expectedException ConsoleException
+ * @return void
  */
 	public function testShortOptionThatDoesNotExist() {
 		$parser = new ConsoleOptionParser('test', false);

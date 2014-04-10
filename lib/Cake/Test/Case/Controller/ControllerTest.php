@@ -62,7 +62,7 @@ class ControllerPost extends CakeTestModel {
  *
  * @var string
  */
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 
 /**
  * invalidFields property
@@ -171,7 +171,7 @@ class ControllerAlias extends CakeTestModel {
  *
  * @var string
  */
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 }
 
 /**
@@ -246,7 +246,7 @@ class TestController extends ControllerTestAppController {
 	}
 
 /**
- * view.ctp method
+ * view method
  *
  * @param mixed $testId
  * @param mixed $test2Id
@@ -636,11 +636,11 @@ class ControllerTest extends CakeTestCase {
 		$Controller->viewPath = 'Posts';
 
 		$result = $Controller->render('index');
-		$this->assertRegExp('/Posts index/', (string)$result);
+		$this->assertRegExp('/posts index/', (string)$result);
 
 		$Controller->view = 'index';
 		$result = $Controller->render();
-		$this->assertRegExp('/Posts index/', (string)$result);
+		$this->assertRegExp('/posts index/', (string)$result);
 
 		$result = $Controller->render('/Elements/test_element');
 		$this->assertRegExp('/this is the test element/', (string)$result);
@@ -671,7 +671,7 @@ class ControllerTest extends CakeTestCase {
 	}
 
 /**
- * test that a component beforeRender can change the controller view.ctp class.
+ * test that a component beforeRender can change the controller view class.
  *
  * @return void
  */
@@ -694,7 +694,7 @@ class ControllerTest extends CakeTestCase {
 	}
 
 /**
- * test that a component beforeRender can change the controller view.ctp class.
+ * test that a component beforeRender can change the controller view class.
  *
  * @return void
  */
@@ -1006,26 +1006,26 @@ class ControllerTest extends CakeTestCase {
 
 		$request->expects($this->any())->method('referer')
 			->with(true)
-			->will($this->returnValue('/Posts/index'));
+			->will($this->returnValue('/posts/index'));
 
 		$Controller = new Controller($request);
 		$result = $Controller->referer(null, true);
-		$this->assertEquals('/Posts/index', $result);
+		$this->assertEquals('/posts/index', $result);
 
 		$Controller = new Controller($request);
 		$request->setReturnValue('referer', '/', array(true));
-		$result = $Controller->referer(array('controller' => 'Posts', 'action' => 'index'), true);
-		$this->assertEquals('/Posts/index', $result);
+		$result = $Controller->referer(array('controller' => 'posts', 'action' => 'index'), true);
+		$this->assertEquals('/posts/index', $result);
 
 		$request = $this->getMock('CakeRequest');
 
 		$request->expects($this->any())->method('referer')
 			->with(false)
-			->will($this->returnValue('http://localhost/Posts/index'));
+			->will($this->returnValue('http://localhost/posts/index'));
 
 		$Controller = new Controller($request);
 		$result = $Controller->referer();
-		$this->assertEquals('http://localhost/Posts/index', $result);
+		$this->assertEquals('http://localhost/posts/index', $result);
 
 		$Controller = new Controller(null);
 		$result = $Controller->referer();
@@ -1041,11 +1041,11 @@ class ControllerTest extends CakeTestCase {
 		$request = new CakeRequest('controller_posts/index');
 
 		$TestController = new TestController($request);
-		$TestController->setAction('view.ctp', 1, 2);
+		$TestController->setAction('view', 1, 2);
 		$expected = array('testId' => 1, 'test2Id' => 2);
 		$this->assertSame($expected, $TestController->request->data);
-		$this->assertSame('view.ctp', $TestController->request->params['action']);
-		$this->assertSame('view.ctp', $TestController->view);
+		$this->assertSame('view', $TestController->request->params['action']);
+		$this->assertSame('view', $TestController->view);
 	}
 
 /**
@@ -1259,10 +1259,10 @@ class ControllerTest extends CakeTestCase {
  * @return void
  */
 	public function testPropertyBackwardsCompatibility() {
-		$request = new CakeRequest('Posts/index', false);
-		$request->addParams(array('controller' => 'Posts', 'action' => 'index'));
+		$request = new CakeRequest('posts/index', false);
+		$request->addParams(array('controller' => 'posts', 'action' => 'index'));
 		$request->data = array('Post' => array('id' => 1));
-		$request->here = '/Posts/index';
+		$request->here = '/posts/index';
 		$request->webroot = '/';
 
 		$Controller = new TestController($request);

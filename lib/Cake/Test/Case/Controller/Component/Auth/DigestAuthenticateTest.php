@@ -95,7 +95,7 @@ class DigestAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateNoData() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 
 		$this->response->expects($this->never())
 			->method('header');
@@ -111,7 +111,7 @@ class DigestAuthenticateTest extends CakeTestCase {
  * @return void
  */
 	public function testAuthenticateWrongUsername() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_DIGEST'] = <<<DIGEST
@@ -135,7 +135,7 @@ DIGEST;
  * @return void
  */
 	public function testAuthenticateChallenge() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		try {
@@ -155,7 +155,7 @@ DIGEST;
  * @return void
  */
 	public function testAuthenticateSuccess() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_DIGEST'] = <<<DIGEST
@@ -189,7 +189,7 @@ DIGEST;
  */
 	public function testAuthenticateFailReChallenge() {
 		$this->auth->settings['scope'] = array('user' => 'nate');
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array('pass' => array(), 'named' => array()));
 
 		$_SERVER['PHP_AUTH_DIGEST'] = <<<DIGEST

@@ -33,7 +33,7 @@ class RequestActionPost extends CakeTestModel {
  *
  * @var string
  */
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 }
 
 /**
@@ -464,7 +464,7 @@ class ObjectTest extends CakeTestCase {
 		$this->assertEquals($expected, $result);
 
 		$result = $this->object->requestAction('/tests_apps/index', array('return'));
-		$expected = 'This is the TestsAppsController index view.ctp ';
+		$expected = 'This is the TestsAppsController index view ';
 		$this->assertEquals($expected, $result);
 
 		$result = $this->object->requestAction('/tests_apps/some_method');
@@ -548,7 +548,7 @@ class ObjectTest extends CakeTestCase {
 		$result = $this->object->requestAction(
 			array('controller' => 'tests_apps', 'action' => 'index'), array('return')
 		);
-		$expected = 'This is the TestsAppsController index view.ctp ';
+		$expected = 'This is the TestsAppsController index view ';
 		$this->assertEquals($expected, $result);
 
 		$result = $this->object->requestAction(array('controller' => 'tests_apps', 'action' => 'some_method'));

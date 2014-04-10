@@ -151,7 +151,7 @@
 /**
  * Enable cache checking.
  *
- * If set to true, for view.ctp caching you must still use the controller
+ * If set to true, for view caching you must still use the controller
  * public $cacheAction inside your controllers to define caching settings.
  * You can either set it controller-wide by setting public $cacheAction = true,
  * or in each action using $this->cacheAction = true.
@@ -160,11 +160,11 @@
 	//Configure::write('Cache.check', true);
 
 /**
- * Enable cache view.ctp prefixes.
+ * Enable cache view prefixes.
  *
- * If set it will be prepended to the cache name for view.ctp file caching. This is
+ * If set it will be prepended to the cache name for view file caching. This is
  * helpful if you deploy the same application via multiple subdomains and languages,
- * for instance. Each version can then have its own view.ctp cache namespace.
+ * for instance. Each version can then have its own view cache namespace.
  * Note: The final cache file name will then be `prefix_cachefilename`.
  */
 	//Configure::write('Cache.viewPrefix', 'prefix');

@@ -142,8 +142,8 @@ class SecurityComponentTest extends CakeTestCase {
 	public function setUp() {
 		parent::setUp();
 
-		$request = new CakeRequest('Posts/index', false);
-		$request->addParams(array('controller' => 'Posts', 'action' => 'index'));
+		$request = new CakeRequest('posts/index', false);
+		$request->addParams(array('controller' => 'posts', 'action' => 'index'));
 		$this->Controller = new SecurityTestController($request);
 		$this->Controller->Components->init($this->Controller);
 		$this->Controller->Security = $this->Controller->TestSecurity;
@@ -172,11 +172,12 @@ class SecurityComponentTest extends CakeTestCase {
  * visibility keyword in the blackhole callback
  *
  * @expectedException BadRequestException
+ * @return void
  */
 	public function testBlackholeWithBrokenCallback() {
-		$request = new CakeRequest('Posts/index', false);
+		$request = new CakeRequest('posts/index', false);
 		$request->addParams(array(
-			'controller' => 'Posts', 'action' => 'index')
+			'controller' => 'posts', 'action' => 'index')
 		);
 		$this->Controller = new BrokenCallbackController($request);
 		$this->Controller->Components->init($this->Controller);
@@ -194,7 +195,7 @@ class SecurityComponentTest extends CakeTestCase {
  */
 	public function testExceptionWhenActionIsBlackholeCallback() {
 		$this->Controller->request->addParams(array(
-			'controller' => 'Posts',
+			'controller' => 'posts',
 			'action' => 'fail'
 		));
 		$this->assertFalse($this->Controller->failed);
@@ -607,7 +608,7 @@ class SecurityComponentTest extends CakeTestCase {
 		$fields = '69f493434187b867ea14b901fdf58b55d27c935d%3A';
 		$unlocked = '';
 
-		$this->Controller->request->data = $data = array(
+		$this->Controller->request->data = array(
 			'Model' => array('username' => '', 'password' => ''),
 			'_Token' => compact('key', 'fields', 'unlocked')
 		);
@@ -830,7 +831,7 @@ class SecurityComponentTest extends CakeTestCase {
 /**
  * Test that validatePost fails when unlocked fields are changed.
  *
- * @return
+ * @return void
  */
 	public function testValidatePostFailDisabledFieldTampering() {
 		$this->Controller->Security->startup($this->Controller);

@@ -437,14 +437,14 @@ class HelperTest extends CakeTestCase {
 	}
 
 /**
- * test that 'view.ctp' doesn't break things.
+ * test that 'view' doesn't break things.
  *
  * @return void
  */
 	public function testSetEntityWithView() {
-		$this->assertNull($this->Helper->setEntity('Allow.view.ctp.group_id'));
-		$this->assertNull($this->Helper->setEntity('Allow.view.ctp'));
-		$this->assertNull($this->Helper->setEntity('View.view.ctp'));
+		$this->assertNull($this->Helper->setEntity('Allow.view.group_id'));
+		$this->assertNull($this->Helper->setEntity('Allow.view'));
+		$this->assertNull($this->Helper->setEntity('View.view'));
 	}
 
 /**
@@ -566,8 +566,8 @@ class HelperTest extends CakeTestCase {
 		$result = $this->Helper->url('/controller/action/1?one=1&two=2');
 		$this->assertEquals('/controller/action/1?one=1&amp;two=2', $result);
 
-		$result = $this->Helper->url(array('controller' => 'Posts', 'action' => 'index', 'page' => '1" onclick="alert(\'XSS\');"'));
-		$this->assertEquals("/Posts/index/page:1%22%20onclick%3D%22alert%28%27XSS%27%29%3B%22", $result);
+		$result = $this->Helper->url(array('controller' => 'posts', 'action' => 'index', 'page' => '1" onclick="alert(\'XSS\');"'));
+		$this->assertEquals("/posts/index/page:1%22%20onclick%3D%22alert%28%27XSS%27%29%3B%22", $result);
 
 		$result = $this->Helper->url('/controller/action/1/param:this+one+more');
 		$this->assertEquals('/controller/action/1/param:this+one+more', $result);
@@ -579,15 +579,15 @@ class HelperTest extends CakeTestCase {
 		$this->assertEquals('/controller/action/1/param:%7Baround%20here%7D%5Bthings%5D%5Bare%5D%24%24', $result);
 
 		$result = $this->Helper->url(array(
-			'controller' => 'Posts', 'action' => 'index', 'param' => '%7Baround%20here%7D%5Bthings%5D%5Bare%5D%24%24'
+			'controller' => 'posts', 'action' => 'index', 'param' => '%7Baround%20here%7D%5Bthings%5D%5Bare%5D%24%24'
 		));
-		$this->assertEquals("/Posts/index/param:%257Baround%2520here%257D%255Bthings%255D%255Bare%255D%2524%2524", $result);
+		$this->assertEquals("/posts/index/param:%257Baround%2520here%257D%255Bthings%255D%255Bare%255D%2524%2524", $result);
 
 		$result = $this->Helper->url(array(
-			'controller' => 'Posts', 'action' => 'index', 'page' => '1',
+			'controller' => 'posts', 'action' => 'index', 'page' => '1',
 			'?' => array('one' => 'value', 'two' => 'value', 'three' => 'purple')
 		));
-		$this->assertEquals("/Posts/index/page:1?one=value&amp;two=value&amp;three=purple", $result);
+		$this->assertEquals("/posts/index/page:1?one=value&amp;two=value&amp;three=purple", $result);
 	}
 
 /**
@@ -670,9 +670,9 @@ class HelperTest extends CakeTestCase {
  */
 	public function testAssetUrlNoRewrite() {
 		$this->Helper->request->addPaths(array(
-			'base' => '/cake_dev/edit.ctp',
+			'base' => '/cake_dev/index.php',
 			'webroot' => '/cake_dev/app/webroot/',
-			'here' => '/cake_dev/edit.ctp/tasks',
+			'here' => '/cake_dev/index.php/tasks',
 		));
 		$result = $this->Helper->assetUrl('img/cake.icon.png', array('fullBase' => true));
 		$expected = FULL_BASE_URL . '/cake_dev/app/webroot/img/cake.icon.png';

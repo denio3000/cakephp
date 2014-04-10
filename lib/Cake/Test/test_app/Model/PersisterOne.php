@@ -23,7 +23,7 @@
  */
 class PersisterOne extends AppModel {
 
-	public $useTable = 'Posts';
+	public $useTable = 'posts';
 
 	public $actsAs = array('PersisterOneBehavior', 'TestPlugin.TestPluginPersisterOne');
 

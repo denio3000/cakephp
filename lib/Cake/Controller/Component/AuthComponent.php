@@ -39,6 +39,8 @@ class AuthComponent extends Component {
 
 /**
  * Constant for 'all'
+ *
+ * @var string
  */
 	const ALL = 'all';
 
@@ -131,7 +133,7 @@ class AuthComponent extends Component {
 	protected $_authorizeObjects = array();
 
 /**
- * The name of an optional view.ctp element to render when an Ajax request is made
+ * The name of an optional view element to render when an Ajax request is made
  * with an invalid or expired session
  *
  * @var string

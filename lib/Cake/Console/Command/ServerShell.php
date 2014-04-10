@@ -26,11 +26,15 @@ class ServerShell extends AppShell {
 
 /**
  * Default ServerHost
+ *
+ * @var string
  */
 	const DEFAULT_HOST = 'localhost';
 
 /**
  * Default ListenPort
+ *
+ * @var integer
  */
 	const DEFAULT_PORT = 80;
 
@@ -128,7 +132,7 @@ class ServerShell extends AppShell {
 			$this->_host,
 			$this->_port,
 			escapeshellarg($this->_documentRoot),
-			escapeshellarg($this->_documentRoot . '/edit.ctp')
+			escapeshellarg($this->_documentRoot . '/index.php')
 		);
 
 		$port = ($this->_port == self::DEFAULT_PORT) ? '' : ':' . $this->_port;
