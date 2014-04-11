@@ -10,14 +10,16 @@ $cakeDescription = __d('cake_dev', 'single page - post');
         <?php echo $cakeDescription ?>:
         <?php echo $title_for_layout; ?>
     </title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <?php
     echo $this->Html->meta('icon');
 
     echo $this->Html->css('cake.generic');
 
     echo $this->Html->css('style');
-    // jQuery
+    // jQuery   // jQuery
     echo $this->Html->script('jquery');
+    echo $this->Html->script('all');
     // Bootstrap
     echo $this->Html->css('bootstrap');
     echo $this->Html->script('bootstrap');
@@ -30,7 +32,7 @@ $cakeDescription = __d('cake_dev', 'single page - post');
     echo $this->Js->writeBuffer(array('cache'=> TRUE ));
     ?>
     <script>
-        // alert('A');
+        var webroot = "<?php echo $this->webroot; ?>";
     </script>
 </head>
 <body class='<?php echo $this->request->params['controller'].'_'.$this->request->params['action']; ?>'>

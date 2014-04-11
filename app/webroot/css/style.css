@@ -98,3 +98,39 @@ footer{
     font-size:12px;
     color:#777;
 }
+/* Post View */
+.postContent{
+    font-size:17px;
+    color:#707070;
+}
+
+
+/* Comments */
+
+.commentBox .col-xs-9 {
+    background-color: #F5F5F5;
+    border: 1px solid #EAEAEA;
+    border-radius: 4px;
+    margin: 0 0 15px;
+    padding: 15px 40px;
+}
+.commentBox:nth-child(2n) .col-xs-3 {
+    float: right;
+}
+.infoComment{
+    border-top:1px solid #eaeaea;
+    margin:5px 0 0;
+}
+.col-xs-3 .avatar {
+    background-color: #DDDDDD;
+    border-radius: 50%;
+    display: inline-block;
+    float: left;
+    height: 50px;
+    width: 50px;
+    margin-right:3px;
+}
+.col-xs-3 a {
+    display: inline;
+    white-space: pre-line;
+}

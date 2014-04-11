@@ -67,7 +67,6 @@ class UsersController extends AppController {
 
     public function add() {
         if ($this->request->is('ajax')) {
-
             if ($this->User->save($this->request->data)) {
                 $this->Session->setFlash(__('The user has been created','flash_success'));
                 $this->render('success','ajax');
@@ -163,6 +162,25 @@ class UsersController extends AppController {
         }
         $this->Session->setFlash(__('User was not re-activated'),'flash_alert');
         $this->redirect(array('action' => 'index'));
+    }
+
+    /**
+     * Get User Name by id
+     * @param array $id
+     * @return int
+     */
+    public function getUsername ($id = null)
+    {
+        $this->User->id = $id;
+        if(!$this->User->exists()){
+            throw new NotFoundException('Invalid user');
+        }
+        if(!$id){
+            $this->Session->setFlash('Invalid user');
+            $this->redirect(array('action' => 'index'));
+        }
+        $user = $this->User->find('first', array('conditions'=> array('User.id ='.$id), 'fields' => 'name'));
+        return $user['User']['name'];
     }
 
 }

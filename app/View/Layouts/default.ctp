@@ -10,6 +10,7 @@ $cakeDescription = __d('cake_dev', 'INFODESIGN: Default layout');
 		<?php echo $cakeDescription ?>:
 		<?php echo $title_for_layout; ?>
 	</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 	<?php
 		echo $this->Html->meta('icon');
 

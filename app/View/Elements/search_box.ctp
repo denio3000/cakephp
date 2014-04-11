@@ -26,4 +26,7 @@
         </button>
     </span>
 </div>
+<?php
+        echo $this->Form->end();
+?>
 <!-- /well -->

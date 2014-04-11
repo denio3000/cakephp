@@ -2,6 +2,8 @@
 
 class Post extends AppModel {
 
+    var $hasMany = array('Comment'=>array('className'=>'Comment'));
+
     public function getAuthorName($userid = NULL){
         App::import('Model', 'User');
         $userObj = new User();

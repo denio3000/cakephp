@@ -196,7 +196,5 @@ class User extends AppModel {
         // fallback to our parent
         return parent::beforeSave($options);
     }
-
 }
-
 ?>
